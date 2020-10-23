@@ -102,6 +102,7 @@ public void SimpleSequenceTest()
         }
 ```
 The code shown above setups the pipeline of two modules. 
+
 1.First one is so called action module, which defines the custom code to be executed. 
 
 2.Second module is setup by the following line of code:
@@ -127,7 +128,7 @@ double[][] testData = new double[4][];
             testData[2] = new double[] { 6000.0, 0.0 };
             testData[3] = new double[] { 5001, 0.0 };
 
-            var result = api.Algorithm.Predict(testData, api.Context) as PerceptronResult;
+        var result = api.Algorithm.Predict(testData, api.Context) as PerceptronResult;
 
             Assert.True(result.PredictedValues[0] == 0);
             Assert.True(result.PredictedValues[1] == 0);
@@ -170,15 +171,18 @@ More information can be found on [Click here for more information on NuGet packa
 
 To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)
 
-  The structure of IAlgorithm has 2 phases:
-1. IResult – IResult is used to set and get the final result of the algorithm and store it. We use IResult for the PREDICT phase - This is the final phase where we get the perfect output for the input provided by the user on the basis of the algorithm we give.In this prediction logic should be written as shown in  screenshot 6.
-2. IScore – Iscore is used to set and get the values of the variables used in the project. We use IScore for RUN and TRAIN methods.
+**IAlgorithm** - The structure of _IAlgorithm_ has 2 phases:
+
+1. _**IResult**_ – IResult is used to set and get the final result of the algorithm and store it. We use IResult for the PREDICT phase - This is the final phase where we get the perfect output for the input provided by the user on the basis of the algorithm we give.In this prediction logic should be written as shown in  screenshot 6.
+
+2. _**IScore**_ – Iscore is used to set and get the values of the variables used in the project. We use IScore for RUN and TRAIN methods.
 
 **RUN** – This is the evaluation part where the random data will be given to our system to test whether the correct output is being displayed after the training session. Here, we call TRAIN method internally.
-**TRAIN** – Here we will train the system with our specific set of data I.e input and the output as in how to function. Algorithm of the function is written in Train method.</p>
 
-  _Inputs_ to the TRAIN i.e to the algorithm is the set of data with expected outputs for few number of inputs, we train the system and then expect the predicted value to be accurate when other input is given.
-  _Output_ is the predicted value from PREDICT method which gives the accuracy of the True or False statements.
+**TRAIN** – Here we will train the system with our specific set of data I.e input and the output as in how to function. Algorithm of the function is written in Train method.
+
+  **Inputs** to the TRAIN i.e to the algorithm is the set of data with expected outputs for few number of inputs, we train the system and then expect the predicted value to be accurate when other input is given.
+  **Output** is the predicted value from PREDICT method which gives the accuracy of the True or False statements.
 
 # How to build the custom module and algorithm #
 
@@ -198,15 +202,13 @@ Prediction of 'chance of Precipitation' by calculating the average of temperatur
 
 In the Visual Studio, create a new solution by following the steps -
 	
-  ```markdown
-  Navigate to File --> New --> Project
-	```
+  ```markdown Navigate to File --> New --> Project
+  ```
 For our example - give the project name as **“HelloWorldTutorial”**
 
 Use the selectors on the left side to choose the different types of programming languages or platforms to work with. For example, we are creating a class library with the template .NET STANDARD under the Visual C# selector as show in Fig. 4.
 
-```markdown
-Name the project --> Specify the location --> Click OK<
+```markdown Name the project --> Specify the location --> Click OK<
 ```
 Now the project is created with the name _'HelloWorldTutorial.sln'_
   
@@ -226,13 +228,13 @@ LearningApiAlgorithm.cs serves as the main class folder for the algorithm.
 
 We should add NuGet package called LearningApi to our project by following the steps below, 
 
-	```markdown	
+		
 	Right click on project (HelloWorldTutorial.sln) --> Click on ‘Manage NuGet packages..’
 
 	in the pop up window --> Click on BROWSE,
 	
 	search for LearningApi and select --> Click on SELECT button to add the NuGet package to the project. (Refer Fig. 6)
-	```
+	
 
 ![Fig. 6 : Adding NuGet package to our project]()
   
@@ -241,12 +243,6 @@ A pop up with the packages installed along with the LearningApi NuGet package is
 ### Step 4 : Start the Code for the project LEARNING API ALGORITHM
 
 Open the class *‘LearningApiAlgorithm.cs’* and implement the *IAlgorithm* in the code which is taken from LearningApi NuGet package. *IAlgorithm*  is in the library and it has a separate structure which we have to use in the project as we already have discussed in the section - 'how to use LearningApi'. 
-
-The structure of **IAlgorithm** has 2 phases refer Fig.4 :
-
-1. **IResult** : Iscore is used to set and get the final result of the algorithm and store it. We Use IScore for the PREDICT phase - This is the final phase where we get the perfect output for the input provided by the user on the basis of the algorithm we give. In this prediction logic should be written as shown in  Fig. 9.
-
-2. **IScore** : This is used to set and get the values of the variables used in the project. We use IResult in RUN and TRAIN methods as shown in Fig. 8.
 
 ![Image 7]()
 
