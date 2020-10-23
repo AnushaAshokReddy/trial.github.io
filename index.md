@@ -1,4 +1,14 @@
-## Welcome to LearningApi Tutorials
+# Welcome To LearningApi Tutorial 
+
+## Index :
+
+<a href="#LearningApi_Introduction">LearningApi Introduction</a>
+<a href="#LearningApi_Concept">LearningApi Concept</a>
+<a href="#Algorithms&Modules">Click Here..</a>
+
+
+
+# <a id="LearningApi_Introduction">LearningApi Introduction</a>
 
 Learning API is Machine Learning Foundation of a set of ML libraries fully implemented as .NET Standard library. It provides a unique processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with daenet GmBh and Frankfurt University of Applied Sciences.
 
@@ -29,9 +39,39 @@ The format for IPipeline :
     }
 ```
 
-The module receives an input TIN and context information. Usually TIN is set of data, which results as output of th eprevious module. Typically, first module in the pipeline is responsibe to provide learning data and last module in the pipeline is usually algorithm.
+# The <a id="LearningApi_Concept">LearningApi Concept</a>
 
-Following example illustrates how setup the learning pipeline:
+LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
+
+  In order use LearningApi, we should install **_Nuget packages_** and **_LearningApi_** into our project. 
+  
+  Basically a NuGet package is a single ZIP file with the *.nupkg* extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number.
+  
+  Initially open the class ‘.cs’ and implement the IAlgorithm in the code which is taken from Learning Api NuGet package. IAlgorithm is in the library and it has a separate structure which we have to use in the project. 
+
+  A NuGet package is a single ZIP file with the .nupkg extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number. The NuGet package 'LearningApi' enables the end users to use all the predefined interfaces facilitating the defined functionalities and make it easier for the end user to achieve the goal of creating a solution.
+  
+More information can be found on [Click here for more information on NuGet packages..](https://docs.microsoft.com/en-us/visualstudio/mac/nuget-walkthrough?view=vsmac-2019)
+
+To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)
+
+**IAlgorithm** - The structure of _IAlgorithm_ has 2 phases:
+
+1. _**IResult**_ – IResult is used to set and get the final result of the algorithm and store it. We use IResult for the PREDICT phase - This is the final phase where we get the perfect output for the input provided by the user on the basis of the algorithm we give.In this prediction logic should be written as shown in  screenshot 6.
+
+2. _**IScore**_ – Iscore is used to set and get the values of the variables used in the project. We use IScore for RUN and TRAIN methods.
+
+**RUN** – This is the evaluation part where the random data will be given to our system to test whether the correct output is being displayed after the training session. Here, we call TRAIN method internally.
+
+**TRAIN** – Here we will train the system with our specific set of data I.e input and the output as in how to function. Algorithm of the function is written in Train method.
+
+  **Inputs** to the TRAIN i.e to the algorithm is the set of data with expected outputs for few number of inputs, we train the system and then expect the predicted value to be accurate when other input is given.
+  
+  **Output** is the predicted value from PREDICT method which gives the accuracy of the True or False statements.
+  
+**The Pipeline module** receives an input TIN and context information. Usually TIN is set of data, which results as output of th eprevious module. Typically, first module in the pipeline is responsibe to provide learning data and last module in the pipeline is usually algorithm.
+
+Following example illustrates how to setup the learning pipeline:
 
 ```markdown
 public void SimpleSequenceTest()
@@ -133,7 +173,8 @@ double[][] testData = new double[4][];
             Assert.True(result.PredictedValues[2] == 1);
             Assert.True(result.PredictedValues[3] == 1);
 ```
-# Difference between <a id="Algorithms&Modules">Algorithms&Modules</a>
+
+# Introduction to <a id="Algorithms&Modules">Algorithms&Modules</a>
 
 An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
 
@@ -151,37 +192,8 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 
 [Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
 
-# The LearningApi Concept
 
-LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
-
-  In order use LearningApi, we should install **_Nuget packages_** and **_LearningApi_** into our project. 
-  
-  Basically a NuGet package is a single ZIP file with the *.nupkg* extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number.
-  
-  Initially open the class ‘.cs’ and implement the IAlgorithm in the code which is taken from Learning Api NuGet package. IAlgorithm is in the library and it has a separate structure which we have to use in the project. 
-
-  A NuGet package is a single ZIP file with the .nupkg extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number. The NuGet package 'LearningApi' enables the end users to use all the predefined interfaces facilitating the defined functionalities and make it easier for the end user to achieve the goal of creating a solution.
-  
-More information can be found on [Click here for more information on NuGet packages..](https://docs.microsoft.com/en-us/visualstudio/mac/nuget-walkthrough?view=vsmac-2019)
-
-To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)
-
-**IAlgorithm** - The structure of _IAlgorithm_ has 2 phases:
-
-1. _**IResult**_ – IResult is used to set and get the final result of the algorithm and store it. We use IResult for the PREDICT phase - This is the final phase where we get the perfect output for the input provided by the user on the basis of the algorithm we give.In this prediction logic should be written as shown in  screenshot 6.
-
-2. _**IScore**_ – Iscore is used to set and get the values of the variables used in the project. We use IScore for RUN and TRAIN methods.
-
-**RUN** – This is the evaluation part where the random data will be given to our system to test whether the correct output is being displayed after the training session. Here, we call TRAIN method internally.
-
-**TRAIN** – Here we will train the system with our specific set of data I.e input and the output as in how to function. Algorithm of the function is written in Train method.
-
-  **Inputs** to the TRAIN i.e to the algorithm is the set of data with expected outputs for few number of inputs, we train the system and then expect the predicted value to be accurate when other input is given.
-  
-  **Output** is the predicted value from PREDICT method which gives the accuracy of the True or False statements.
-
-# How to build the custom module and algorithm #
+# How to build the custom module and algorithm 
 
   The below solution demonstrates how to implement a custom module and a custom algorithm. In this example, the SUM and AVERAGE logic will be impemented.
   
@@ -195,7 +207,7 @@ Prediction of 'chance of Precipitation' by calculating the average of temperatur
 
 ## Example Solution using LearningApi Algorithm :
 
-### Step 1: Create a solution
+### Step 1: Create a solution 
 
 In the Visual Studio, create a new solution by following the steps -
 	
@@ -211,7 +223,7 @@ Now the project is created with the name _'HelloWorldTutorial.sln'_
   
 ![Fig. 4 : Creation of Solution]()
 	
-### Step 2: Create the class library for the algorithm :
+### Step 2: Create the class library for the algorithm 
 
 When solution(HelloWorldTutorial.sln) is created, by default a class library is also created automatically.
 
@@ -221,7 +233,7 @@ LearningApiAlgorithm.cs serves as the main class folder for the algorithm.
 
 ![Fig. 5 : The project and class library folder structure]()
 	
-### Step 3 : Add NuGet Package 'LearningApi' to our project :
+### Step 3 : Add NuGet Package 'LearningApi' to our project 
 
 We should add NuGet package called LearningApi to our project by following the steps below, 
 
@@ -253,7 +265,7 @@ Fig. 8 : Algorithm of the project is included in *TRAIN* method of IScore
 
 Fig. 9 : Prediction logic is included in *PREDICT* method of IResult
 
-### Step 5 : Create the *Extension.cs* file :
+### Step 5 : Create the *Extension.cs* file 
 
 Extension file in a project facilitates other users to utilise our project code in their implementations. Calling this file in other projects enables the project code in other projects.
 
@@ -263,7 +275,7 @@ In our example solution, *LearningApiAlgorithmExtension.cs file* is created in o
 
 Fig. 10 : Extension file structure and usage shown
 
-### Step 6 : Create the *Result.cs* and *Score.cs* files :
+### Step 6 : Create the *Result.cs* and *Score.cs* files 
 
 In our example solution, the *LearningApiAlgorithmResult.cs* and *LearningApiAlgorithmScore.cs* files should be created to define the values which should be storing the result and trained score data.
 
