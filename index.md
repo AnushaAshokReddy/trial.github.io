@@ -3,8 +3,11 @@
 ## Index :
 
 <a href="#LearningApi_Introduction">LearningApi Introduction</a>
+
 <a href="#LearningApi_Concept">LearningApi Concept</a>
+
 <a href="#Algorithms&Modules">Click Here..</a>
+
 
 
 
