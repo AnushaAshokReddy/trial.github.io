@@ -1,7 +1,5 @@
 ## Welcome to LearningApi Tutorials
 
-You can use the [editor on GitHub](https://github.com/AnushaAshokReddy/trial.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
 Learning API is Machine Learning Foundation of a set of ML libraries fully implemented as .NET Standard library. It provides a unique processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with daenet GmBh and Frankfurt University of Applied Sciences.
 
 ![Fig. 1]()
@@ -278,7 +276,7 @@ Fig. 11 : Structure of solution with Learning API Algorithm.
 -------------------------------------------------------------------------------------------------------------
 ## Example Solution using LearningApi Pipeline Module :
 
-Pipeline module is a canal to send the data to the actual Algorithm. For a deeper knowledge on Pipeline Module click on <a id="Algorithms&Pipelines">Click Here..</a>
+Pipeline module is a canal to send the data to the actual Algorithm. For a deeper knowledge on Pipeline Module click on <a id="Algorithms&Modules">Click Here..</a>
 
 ### Step 7 : Create LearningAPI Module for the Pipeline module method
 
