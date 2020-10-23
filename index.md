@@ -133,9 +133,7 @@ double[][] testData = new double[4][];
             Assert.True(result.PredictedValues[2] == 1);
             Assert.True(result.PredictedValues[3] == 1);
 ```
-# Difference between Algorithms&Modules 
-
-<a href="#Algorithms&Modules">Click here to see how pipeline is used in project.</a>
+# Difference between <a id="Algorithms&Modules">Algorithms&Modules</a>
 
 An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
 
@@ -276,7 +274,7 @@ Fig. 11 : Structure of solution with Learning API Algorithm.
 -------------------------------------------------------------------------------------------------------------
 ## Example Solution using LearningApi Pipeline Module :
 
-Pipeline module is a canal to send the data to the actual Algorithm. For a deeper knowledge on Pipeline Module click on <a id="Algorithms&Modules">Click Here..</a>
+Pipeline module is a canal to send the data to the actual Algorithm. For a deeper knowledge on Pipeline Module click on <a href="#Algorithms&Modules">Click Here..</a>
 
 ### Step 7 : Create LearningAPI Module for the Pipeline module method
 
