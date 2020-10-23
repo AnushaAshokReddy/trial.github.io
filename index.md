@@ -219,14 +219,14 @@ Prediction of 'chance of Precipitation' by calculating the average of temperatur
 
 In the Visual Studio, create a new solution by following the steps -
 	
-  ```markdown Navigate to File --> New --> Project
-  ```
+    Navigate to File --> New --> Project
+
 For our example - give the project name as **“HelloWorldTutorial”**
 
 Use the selectors on the left side to choose the different types of programming languages or platforms to work with. For example, we are creating a class library with the template .NET STANDARD under the Visual C# selector as show in Fig. 4.
 
-```markdown Name the project --> Specify the location --> Click OK<
-```
+    Name the project --> Specify the location --> Click OK
+
 Now the project is created with the name _'HelloWorldTutorial.sln'_
   
 ![Fig. 4 : Creation of Solution]()
