@@ -1,14 +1,18 @@
 # Welcome To LearningApi Tutorial 
 
-## Index :
+# Index 
 
 <a href="#LearningApi_Introduction">LearningApi Introduction</a>
 
 <a href="#LearningApi_Concept">LearningApi Concept</a>
 
-<a href="#Algorithms&Modules">Click Here..</a>
+<a href="#Algorithms&Modules">Introduction to Algorithms & Modules</a>
 
+<a href="#Supported_Modules&Algorithms _List">Supported Modules and Algorithms</a>
 
+<a href="#Example_Custom_Module&Algorithm">How to build the custom module and algorithm</a>
+
+<a href="#Your_Contribution">Contribution to Learning API?</a>
 
 
 # <a id="LearningApi_Introduction">LearningApi Introduction</a>
@@ -189,14 +193,15 @@ While implementing an algorithm, it is initially trained using various number of
 These data is supposed to be very clean with all details. Sometimes in algorithms when we dont get clean data, pipeline modules are used for pre-processing of the data. For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the bigger algorithm. 
 
 
-# Supported Modules and Algorithms
+# <a id="Supported_Modules&Algorithms _List">Supported Modules and Algorithms</a>
+
 
 All the supported Modules and Algorithms are listed in an excel sheet. Also, the information about the documentation and coding source files availabiliy in the LearningApi repository can be found here.
 
 [Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
 
 
-# How to build the custom module and algorithm 
+# <a id="Example_Custom_Module&Algorithm">How to build the custom module and algorithm</a>
 
   The below solution demonstrates how to implement a custom module and a custom algorithm. In this example, the SUM and AVERAGE logic will be impemented.
   
@@ -299,11 +304,11 @@ This does not have any structure and we won’t pass any algorithm or logic. And
 
 Fig. 12 : Structure of the Pipeline module 
 
-## **RESULT**
+## Result of Algorithm 
 
 According to the algorithm, the set of data of temperature is given and taken the average of the temperature. The data for chance of precipitation is taken an average. The ratio of average of temperature and average of chance of precipitation is given to be our score. When this score is multiplied with each data given, we get the precipitation value predicted.
 
-# How to contribute to Learning API?
+# <a id="Your_Contribution">How can you contribute to Learning API?</a>
 
 If you implemented a custom module or algorithm and want to integrate it to LearningAPI, then you can do the following, 
 
