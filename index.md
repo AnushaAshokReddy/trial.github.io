@@ -182,6 +182,7 @@ To find out more details, click on [Information..](https://docs.microsoft.com/en
 **TRAIN** – Here we will train the system with our specific set of data I.e input and the output as in how to function. Algorithm of the function is written in Train method.
 
   **Inputs** to the TRAIN i.e to the algorithm is the set of data with expected outputs for few number of inputs, we train the system and then expect the predicted value to be accurate when other input is given.
+  
   **Output** is the predicted value from PREDICT method which gives the accuracy of the True or False statements.
 
 # How to build the custom module and algorithm #
