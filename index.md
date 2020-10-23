@@ -46,7 +46,7 @@ The format for IPipeline :
     }
 ```
 
-# The <a id="LearningApi_Concept">LearningApi Concept</a>
+# The LearningApi Concept <a id="LearningApi_Concept"></a>
 
 LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
 
@@ -181,7 +181,7 @@ double[][] testData = new double[4][];
             Assert.True(result.PredictedValues[3] == 1);
 ```
 
-# Introduction to <a id="Algorithms&Modules">Algorithms&Modules</a>
+# Introduction to Algorithms & Modules <a id="Algorithms&Modules"></a>
 
 An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
 
@@ -193,7 +193,7 @@ While implementing an algorithm, it is initially trained using various number of
 These data is supposed to be very clean with all details. Sometimes in algorithms when we dont get clean data, pipeline modules are used for pre-processing of the data. For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the bigger algorithm. 
 
 
-# <a id="Supported_Modules&Algorithms _List">Supported Modules and Algorithms</a>
+# Supported Modules and Algorithms <a id="Supported_Modules&Algorithms _List"></a>
 
 
 All the supported Modules and Algorithms are listed in an excel sheet. Also, the information about the documentation and coding source files availabiliy in the LearningApi repository can be found here.
@@ -201,7 +201,7 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 [Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
 
 
-# <a id="Example_Custom_Module&Algorithm">How to build the custom module and algorithm</a>
+# How to build the custom module and algorithm <a id="Example_Custom_Module&Algorithm"></a>
 
   The below solution demonstrates how to implement a custom module and a custom algorithm. In this example, the SUM and AVERAGE logic will be impemented.
   
@@ -308,9 +308,9 @@ Fig. 12 : Structure of the Pipeline module
 
 According to the algorithm, the set of data of temperature is given and taken the average of the temperature. The data for chance of precipitation is taken an average. The ratio of average of temperature and average of chance of precipitation is given to be our score. When this score is multiplied with each data given, we get the precipitation value predicted.
 
-# <a id="Your_Contribution">How can you contribute to Learning API?</a>
+# How can you contribute to Learning API? <a id="Your_Contribution"></a>
 
-If you implemented a custom module or algorithm and want to integrate it to LearningAPI, then you can do the following, 
+If you have implemented a custom module or algorithm and want to integrate it to LearningAPI, then you can do the following, 
 
 - Contact us - implement a page for this 
 - Implement your algorithm or/and module
