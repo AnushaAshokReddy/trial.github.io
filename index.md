@@ -27,13 +27,13 @@ For example IAlgorithm, IScore, IResult, IPipeline module.
 
 ![Fig. 2]()
 
-A small demo of the code is as followed : 
+An example code is shown in the Fig. 3 : 
 
 ![Fig. 3]()
 
 LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. One pipeline module is defined as implementation of interface IPipeline. 
 
-The format for IPipeline : 
+The structure for IPipeline Interface: 
 ```markdown
  public interface IPipelineModule
     {
@@ -181,37 +181,26 @@ double[][] testData = new double[4][];
             Assert.True(result.PredictedValues[3] == 1);
 ```
 
-# Introduction to Algorithms & Modules <a id="Algorithms&Modules"></a>
-
-An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
-
-A module in Machine Learning represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
-Both algorithms and modules are independent of each other. 
-
-While implementing an algorithm, it is initially trained using various number of data available already to make the algorithm learn hpw to predict the results for an unknown input in the later stages. Thus the set of data is very important. 
-
-These data is supposed to be very clean with all details. Sometimes in algorithms when we dont get clean data, pipeline modules are used for pre-processing of the data. For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the bigger algorithm. 
-
 
 # Supported Modules and Algorithms <a id="Supported_Modules&Algorithms _List"></a>
-
 
 All the supported Modules and Algorithms are listed in an excel sheet. Also, the information about the documentation and coding source files availabiliy in the LearningApi repository can be found here.
 
 [Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
 
+# What is Algorithm <a id="Algorithm"></a>
 
-# How to build the custom module and algorithm <a id="Example_Custom_Module&Algorithm"></a>
+An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
 
-  The below solution demonstrates how to implement a custom module and a custom algorithm. In this example, the SUM and AVERAGE logic will be impemented.
+# How to build the custom algorithm <a id="Example_Custom_Algorithm"></a>
+
+  The below solution demonstrates how to implement a custom algorithm. In this example, the SUM and AVERAGE logics will be impemented.
   
-  The below example is only for reference on steps to implement a solution using LearningApi and the pipeline modules. But there is no need to build both these for every project.
-  
-  Pipeline components are not ML algorithms. They are processing components in the middle of pipeline. They can be used to load data, to filter data or to do some pre-calculations.So, only sometimes, we use Pipieline modules in MLAlgorithms for processing of clean data and not everytime we should implement this in algorithm.
+  This example is only for reference on steps to implement a solution using LearningApi. 
 	
 ## Algorithm
 
-Prediction of 'chance of Precipitation' by calculating the average of temperature data and the average of chance of precipitation till date given. Motive is to achieve the solution using LeaningApi framework.
+Prediction of 'Chance of Precipitation' by calculating the average of temperature data and the average of chance of precipitation till date given. Motive is to achieve the solution using LeaningApi framework.
 
 ## Example Solution using LearningApi Algorithm :
 
@@ -221,7 +210,7 @@ In the Visual Studio, create a new solution by following the steps -
 	
     Navigate to File --> New --> Project
 
-For our example - give the project name as **“HelloWorldTutorial”**
+For our example - give the project name as **“HelloLearningApiAlgorithm”**
 
 Use the selectors on the left side to choose the different types of programming languages or platforms to work with. For example, we are creating a class library with the template .NET STANDARD under the Visual C# selector as show in Fig. 4.
 
@@ -292,6 +281,15 @@ In our example solution, the *LearningApiAlgorithmResult.cs* and *LearningApiAlg
 Fig. 11 : Structure of solution with Learning API Algorithm.
 
 -------------------------------------------------------------------------------------------------------------
+# What is Module <a id="Module"></a>
+
+A module in Machine Learning represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
+Both algorithms and modules are independent of each other. 
+
+While implementing an algorithm, it is initially trained using various number of data available already to make the algorithm learn how to predict the results for an unknown input in the later stages. Thus the set of data is very important. 
+
+These data is supposed to be very clean with all details. Sometimes in algorithms when we dont get clean data, pipeline modules are used for pre-processing of the data. For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the bigger algorithm. 
+
 ## Example Solution using LearningApi Pipeline Module :
 
 Pipeline module is a canal to send the data to the actual Algorithm. For a deeper knowledge on Pipeline Module click on <a href="#Algorithms&Modules">Click Here..</a>
