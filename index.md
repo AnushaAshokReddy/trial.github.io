@@ -19,7 +19,7 @@
 
 Learning API is Machine Learning Foundation of a set of ML libraries fully implemented as .NET Standard library. It provides a unique processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with daenet GmBh and Frankfurt University of Applied Sciences.
 
-![Fig. 1]()
+![Image 1](trial.github.io/Image 1.png)
 
 LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
 
