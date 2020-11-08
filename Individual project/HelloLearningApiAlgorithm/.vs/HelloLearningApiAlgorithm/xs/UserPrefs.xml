@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{020DFE52-A817-4840-ADA3-FBD6E9C35DFE}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HelloLearningApiAlgorithm/LearningApiAlgorithm.cs">
+    <Files>
+      <File FileName="HelloLearningApiAlgorithm/Program.cs" Line="16" Column="24" />
+      <File FileName="HelloLearningApiAlgorithm/LearningApiAlgorithmExtension.cs" Line="6" Column="36" />
+      <File FileName="HelloLearningApiAlgorithm/LearningApiAlgorithmResult.cs" Line="6" Column="36" />
+      <File FileName="HelloLearningApiAlgorithm/LearningApiAlgorithmScore.cs" Line="12" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HelloLearningApiAlgorithm" expanded="True">
+            <Node name="HelloLearningApiAlgorithm" expanded="True">
+              <Node name="LearningApiAlgorithm.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.ItemProperties.HelloLearningApiAlgorithm FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

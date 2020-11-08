@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{9443551F-9F20-4E6A-9BF7-70F5ACA5735C}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HelloLearningApiPipelineModule/HelloLearningApiPipelineModuleExtension.cs">
+    <Files>
+      <File FileName="HelloLearningApiPipelineModule/HelloLearningApiPipelineModuleExtension.cs" Line="21" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HelloLearningApiPipelineModule" expanded="True">
+            <Node name="HelloLearningApiPipelineModule" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.HelloLearningApiPipelineModule FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
