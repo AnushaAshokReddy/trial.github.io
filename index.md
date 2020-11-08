@@ -23,7 +23,7 @@ Learning API is Machine Learning Foundation of a set of ML libraries fully imple
 
 trial.github.io/Image 1.png
 
-![Image 1]https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png)
+![Image 1](https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png)
 
 
 LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
