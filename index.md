@@ -17,24 +17,21 @@
 
 # LearningApi Introduction <a id="LearningApi_Introduction"></a>
 
-Learning API is Machine Learning Foundation of a set of ML libraries fully implemented as .NET Standard library. It provides a unique processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with daenet GmBh and Frankfurt University of Applied Sciences.
-
-![Image 1](trial.github.io/Image 1.png)
-
-trial.github.io/Image 1.png
+Learning API is Machine Learning Foundation of a set of ML libraries fully implemented as .NET Standard library. It provides a unique processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with Daenet GmbH and Frankfurt University of Applied Sciences.
 
 ![Image 1](https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png)
 
+Fig. 1 : Daenet GmbH and Frankfurt University of Applied Sciences
 
 LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
 
 For example IAlgorithm, IScore, IResult, IPipeline module.
 
-![Fig. 2](b)
+![Image 2](https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png)
 
 An example code is shown in the Fig. 3 : 
 
-![Fig. 3]()
+![Image 3](https://user-images.githubusercontent.com/44580961/98464411-01f36600-21c3-11eb-877f-3c3a3815b1c0.png)
 
 LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. One pipeline module is defined as implementation of interface IPipeline. 
 
@@ -219,7 +216,7 @@ Use the selectors on the left side to choose the different types of programming 
 
     Click on NEXT 	
 
-![Image 4]() 
+![Image 4](https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png) 
 
 Fig. 4 : New Project
 
@@ -227,13 +224,13 @@ For our example - given the project name as **“HelloLearningApiAlgorithm”**
 
     Name the project --> Solution Name --> Specify the location --> Click OK/CREATE
     
-![Image 5]() 
+![Image 5](https://user-images.githubusercontent.com/44580961/98464418-0ae43780-21c3-11eb-9d19-9c08e951e4e9.png) 
 
 Fig. 5 : Project and Solution name
 
 Now the project is created with the name _'HelloLearningApiAlgorithm.sln'_
   
-![Image 6]() 
+![Image 6](https://user-images.githubusercontent.com/44580961/98464421-0ddf2800-21c3-11eb-9951-f66298e25891.png) 
 
 Fig. 6 : Creation of Solution	
 	
@@ -245,7 +242,7 @@ We have to change the names accordingly. Here for example, change the class libr
 
 LearningApiAlgorithm.cs serves as the main class folder for the algorithm.
 
-![Image 7]() 
+![Image 7](https://user-images.githubusercontent.com/44580961/98464425-16cff980-21c3-11eb-92ca-26aee694db54.png) 
 
 Fig. 7 : The project and class library folder structure
 	
@@ -261,8 +258,9 @@ We should add NuGet package called _LearningApi_ to our project by following the
 	search for LearningApi and select --> Select the checkbox of LearningApi nuget --> Click on SELECT/ADD PACKAGE button (Fig. 10)
 
 	
+![Image 8](https://user-images.githubusercontent.com/44580961/98464428-1a638080-21c3-11eb-9789-9788f5e01a95.png)		![Image 9](https://user-images.githubusercontent.com/44580961/98464429-1df70780-21c3-11eb-9e40-7393ae09c9b8.png)			![Image 10](https://user-images.githubusercontent.com/44580961/98464431-218a8e80-21c3-11eb-8329-be2fe49b26e3.png)
 
-![Image 8]()Fig. 8 : Step1,![Image 9]() Fig. 9 : step2, ![Image 10]() Fig. 10 : step3
+Fig. 8 : Step1, 	Fig. 9 : step2,  		Fig. 10 : step3
   
 A pop up with the packages installed along with the LearningApi NuGet package is displayed. Click on OK button.
 
@@ -270,7 +268,7 @@ A pop up with the packages installed along with the LearningApi NuGet package is
 
 Open the class *‘LearningApiAlgorithm.cs’* and implement the *IAlgorithm* in the code which is taken from LearningApi NuGet package. *IAlgorithm*  is in the library and it has a separate structure which we have to use in the project as we already have discussed in the section <a href="#LearningApi_Concept">LearningApi Concept</a>. 
 
-![Image 11]()
+![Image 11](https://user-images.githubusercontent.com/44580961/98464507-ad041f80-21c3-11eb-8ad0-4f8403371402.png)
 
 Fig. 11 : IAlgorithm interface integrated the project
 
@@ -282,7 +280,7 @@ Extension file in a project facilitates other users to utilise our project code 
       
       Select Empty class --> Give the class name --> Click on NEW button (Fig. right side)
 
-![Image 12]()
+![Image 12](https://user-images.githubusercontent.com/44580961/98464510-b3929700-21c3-11eb-8fe0-3df830c1f65f.png)
 
 Fig. 12 : Adding new class 
 
@@ -290,7 +288,7 @@ Likewise, in the example solution, the *LearningApiAlgorithmResult.cs* and *Lear
 
 In the example solution, these 3 classes are created to demonstarte the structure of the complete solution as shown in Fig. 13.
 
-![Image 13]()
+![Image 13](https://user-images.githubusercontent.com/44580961/98464512-b68d8780-21c3-11eb-816f-9a5015f14b43.png)
 
 Fig. 13 : Complete solution model
 
@@ -298,7 +296,7 @@ Fig. 13 : Complete solution model
 
 We give the main algorithm in the _LearningApiAlgorithm.cs_ file under TRAIN module as shown below,
 
-![Image 14]()
+![Image 14](https://user-images.githubusercontent.com/44580961/98464513-b8574b00-21c3-11eb-8f82-3d9ac614c908.png)
 
 Fig. 14 : Learning API Algorithm code implementation
 
@@ -340,7 +338,7 @@ Use the selectors on the left side to choose the different types of programming 
 
     Click on NEXT 	
 
-![Image 4]() 
+![Image 4](https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png) 
 
 Fig. 16 : New Project
 
@@ -348,13 +346,13 @@ For our example - given the project name as **“HelloLearningApiPipelineModule�
 
     Name the project --> Solution Name --> Specify the location --> Click OK/CREATE
     
-![Image 17]() 
+![Image 17](https://user-images.githubusercontent.com/44580961/98464517-bf7e5900-21c3-11eb-9a71-1d03adfea118.png) 
 
 Fig. 17 : Project and Solution name
 
 Now the project is created with the name _'HelloLearningApiPipelineModule.sln'_
   
-![Image 18]() 
+![Image 18](https://user-images.githubusercontent.com/44580961/98464519-c2794980-21c3-11eb-81e7-dee1ccd54601.png) 
 
 Fig. 18 : Creation of Solution	
 
@@ -364,7 +362,7 @@ When solution(HelloLearningApiPipelineModule.sln) is created, by default a class
 
 Change the class library name as “HelloLearningApiPipelineModule.cs” and also create a nwe class withe name 'HelloLearningApiPipelineModuleExtension' as shown in Fig. 19.
 
-![Image 19]() 
+![Image 19](https://user-images.githubusercontent.com/44580961/98464522-c60cd080-21c3-11eb-85cf-dea9250c2e4d.png) 
 
 Fig. 19 : Pipeline and Extension class files
 
@@ -379,7 +377,7 @@ We should add NuGet package called _LearningApi_ to our project by following the
 	
 	search for LearningApi and select --> Select the checkbox of LearningApi nuget --> Click on SELECT/ADD PACKAGE button 
 
-![Image 20]() 
+![Image 20](https://user-images.githubusercontent.com/44580961/98464524-ca38ee00-21c3-11eb-9542-c05a6e9922f1.png) 
 
 Fig. 20 : Nuget package added to pipeline project
 
@@ -387,7 +385,7 @@ Fig. 20 : Nuget package added to pipeline project
 
 Ipipeline Module from LearningApi should be integrated in the Module coding as shown in the Fig. 21.
 
-![Image 21]()
+![Image 21](https://user-images.githubusercontent.com/44580961/98464526-cc02b180-21c3-11eb-9e2d-1afa8e1f86d2.png)
 
 Fig. 21 : IPipeline module Interface in example module
 
@@ -395,7 +393,7 @@ Fig. 21 : IPipeline module Interface in example module
 
 This is not a major algorithm, instead a small pre processing of Convolution filter which can be used for any other algorithms as the data. Code format is as shown below, 
 
-![Image 22]()
+![Image 22](https://user-images.githubusercontent.com/44580961/98464527-d02ecf00-21c3-11eb-81e8-6180c1901fac.png)
 
 Fig. 22 : IPipeline module for example module
 
