@@ -25,7 +25,7 @@ LearningAPI already has interfaces pre declared which we can easily access, unde
 
 For example IAlgorithm, IScore, IResult, IPipeline module.
 
-![Fig. 2]()
+![Fig. 2](b)
 
 An example code is shown in the Fig. 3 : 
 
