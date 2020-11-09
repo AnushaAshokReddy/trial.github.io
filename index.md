@@ -23,13 +23,13 @@ Learning API is Machine Learning Foundation of a set of ML libraries fully imple
 
 Fig. 1 : Daenet GmbH and Frankfurt University of Applied Sciences
 
-<img src="https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png" width="200" height="200" />
-
 LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
 
 For example IAlgorithm, IScore, IResult, IPipeline module.
 
 ![Image 2](https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png)
+
+<img src="https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png" width="400" height="400" />
 
 An example code is shown in the Fig. 3 : 
 
