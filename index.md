@@ -6,7 +6,7 @@
 
 <a href="#LearningApi_Concept">LearningApi Concept</a>
 
-<a href="#Supported_Modules&Algorithms _List">Supported Modules and Algorithms</a>
+<a href="#Supported_Algorithms&Modules_List">Supported Algorithms and Modules</a>
 
 <a href="#What_is_Algorithm">What is Algorithm?</a>
 
@@ -188,11 +188,13 @@ double[][] testData = new double[4][];
 ```
 
 
-# Supported Modules and Algorithms <a id="Supported_Modules&Algorithms _List"></a>
+# Supported Algorithms and Modules <a id="Supported_Algorithms&Modules_List"></a>
 
 All the supported Modules and Algorithms are listed in an excel sheet. Also, the information about the documentation and coding source files availabiliy in the LearningApi repository can be found here.
 
 [Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
+
+## Machine Learning Algorithms
 
 | Algorithm | LearningApi Repository | .md file available | Documentation available? |
 |:--- |:--- |:--- |:--- |
@@ -207,6 +209,8 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 | Neural Network Perceptron | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/NeuralNetworks | Not Available yet | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/NeuralNetworks/NeuralNet.MLPerceptron/Documentation    |
 | Self Organizing Map | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SelfOrganizingMap | Available | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SelfOrganizingMap/Documentation |
 | Survival Analysis | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SurvivalAnalysis | Not Available yet | Not Available yet |
+
+## Data Modules
 
 | Modules | LearningApi Repository | .md file available | Documentation available? |
 |:--- |:--- |:--- |:--- |
