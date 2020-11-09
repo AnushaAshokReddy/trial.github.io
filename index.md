@@ -194,6 +194,29 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 
 [Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
 
+| Algorithm | LearningApi Repository | .md file available | Documentation available? |
+| --- | --- | --- | --- |
+| RingProjection    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/RingProjection    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/RingProjection/Documentation     |
+| SVM - SupportVectorMachine    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SupportVectorMachine    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SupportVectorMachine/Documentation    |
+| Scalar encoder - ScalarEncoder in HTM     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/ScalarEncoder%20in%20HTM    | Not Available yet    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/ScalarEncoder%20in%20HTM/Documentation    |
+| anamoly latest - AnomDetectLatest    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/AnomDetectLatest    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/AnomDetectLatest/Documentation    |
+| Delta Learning     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/DeltaRuleLearning    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/DeltaRuleLearning/Documentation    |
+| GaussianMean Filter     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/GaussianMeanFilter    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/GaussianMeanFilter/Documentation    |
+| Image Edge detection    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/ImageDetection    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/ImageDetection/Documentation    |
+| Logistic Regression     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/LogisticRegression    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/LogisticRegression/Documentation    |
+| Neural Network Perceptron     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/NeuralNetworks    | Not Available yet    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/NeuralNetworks/NeuralNet.MLPerceptron/Documentation    |
+| Self Organizing Map    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SelfOrganizingMap    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SelfOrganizingMap/Documentation    |
+| Survival Analysis     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SurvivalAnalysis    | Not Available yet   | Not Available yet    |
+
+| Modules | LearningApi Repository | .md file available | Documentation available? |
+| --- | --- | --- | --- |
+| Image binarizer Latest    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizerLatest    |  Available   | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizerLatest/Documentation    |
+| Euclidian color filter - Deepali     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/EuclideanColorFilter    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/EuclideanColorFilter/Documentation    |
+| Image Binarizer    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizer    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizer/Documentation    |
+| Center Module     | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/Center%20Module    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/Center%20Module/Documentation    |
+| Canny edge detector    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/CannyEdgeDetector    | Available    | Not Available yet  |
+| SDR Classifier    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/SDR%20Classifier    | Available    | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/SDR%20Classifier/Documentation     |
+
 # What is Algorithm? <a id="What_is_Algorithm"></a>
 
 Machine learning is a class of methods for automatically creating models from data. Machine learning algorithms are the engines of machine learning, meaning it is the algorithms that turn a data set into a model. Which kind of algorithm works best (supervised, unsupervised, classification, regression, etc.) depends on the kind of problem you’re solving, the computing resources available, and the nature of the data.
@@ -419,7 +442,7 @@ We should add NuGet package called _LearningApi_ to our project by following the
 	
 	search for LearningApi and select --> Select the checkbox of LearningApi nuget --> Click on SELECT/ADD PACKAGE button 
 
-![Image 20](https://user-images.githubusercontent.com/44580961/98464524-ca38ee00-21c3-11eb-9542-c05a6e9922f1.png) 
+<!--![Image 20](https://user-images.githubusercontent.com/44580961/98464524-ca38ee00-21c3-11eb-9542-c05a6e9922f1.png) -->
 
 <img src="https://user-images.githubusercontent.com/44580961/98464524-ca38ee00-21c3-11eb-9542-c05a6e9922f1.png" width="400" height="300" />
 
