@@ -220,6 +220,8 @@ Use the selectors on the left side to choose the different types of programming 
 
 ![Image 4](https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png) 
 
+<img src="https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png" width="600" height="600" />
+
 Fig. 4 : New Project
 
 For our example - given the project name as **“HelloLearningApiAlgorithm”**	
@@ -228,11 +230,15 @@ For our example - given the project name as **“HelloLearningApiAlgorithm”**
     
 ![Image 5](https://user-images.githubusercontent.com/44580961/98464418-0ae43780-21c3-11eb-9d19-9c08e951e4e9.png) 
 
+<img src="https://user-images.githubusercontent.com/44580961/98464418-0ae43780-21c3-11eb-9d19-9c08e951e4e9.png" width="600" height="600" />
+
 Fig. 5 : Project and Solution name
 
 Now the project is created with the name _'HelloLearningApiAlgorithm.sln'_
   
 ![Image 6](https://user-images.githubusercontent.com/44580961/98464421-0ddf2800-21c3-11eb-9951-f66298e25891.png) 
+
+<img src="https://user-images.githubusercontent.com/44580961/98464421-0ddf2800-21c3-11eb-9951-f66298e25891.png" width="600" height="600" />
 
 Fig. 6 : Creation of Solution	
 	
@@ -262,13 +268,19 @@ We should add NuGet package called _LearningApi_ to our project by following the
 	
 ![Image 8](https://user-images.githubusercontent.com/44580961/98464428-1a638080-21c3-11eb-9789-9788f5e01a95.png)
 
+<img src="https://user-images.githubusercontent.com/44580961/98464428-1a638080-21c3-11eb-9789-9788f5e01a95.png" width="400" height="550" />
+
 Fig. 8 : NuGet package integration step1,
 
 ![Image 9](https://user-images.githubusercontent.com/44580961/98464429-1df70780-21c3-11eb-9e40-7393ae09c9b8.png)
 
+<img src="https://user-images.githubusercontent.com/44580961/98464429-1df70780-21c3-11eb-9e40-7393ae09c9b8.png" width="700" height="550" />
+
 Fig. 9 : NuGet package integration step2,  
 
 ![Image 10](https://user-images.githubusercontent.com/44580961/98464431-218a8e80-21c3-11eb-8329-be2fe49b26e3.png)
+
+<img src="https://user-images.githubusercontent.com/44580961/98464431-218a8e80-21c3-11eb-8329-be2fe49b26e3.png" width="600" height="600" />
 
 Fig. 10 : NuGet package integration step3
   
@@ -300,6 +312,8 @@ In the example solution, these 3 classes are created to demonstarte the structur
 
 ![Image 13](https://user-images.githubusercontent.com/44580961/98464512-b68d8780-21c3-11eb-816f-9a5015f14b43.png)
 
+<img src="https://user-images.githubusercontent.com/44580961/98464512-b68d8780-21c3-11eb-816f-9a5015f14b43.png" width="400" height="400" />
+
 Fig. 13 : Complete solution model
 
 ### Step 6 : Coding part for the example algorithm.   
@@ -307,6 +321,8 @@ Fig. 13 : Complete solution model
 We give the main algorithm in the _LearningApiAlgorithm.cs_ file under TRAIN module as shown below,
 
 ![Image 14](https://user-images.githubusercontent.com/44580961/98464513-b8574b00-21c3-11eb-8f82-3d9ac614c908.png)
+
+<img src="https://user-images.githubusercontent.com/44580961/98464513-b8574b00-21c3-11eb-8f82-3d9ac614c908.png" width="500" height="400" />
 
 Fig. 14 : Learning API Algorithm code implementation
 
@@ -350,6 +366,8 @@ Use the selectors on the left side to choose the different types of programming 
 
 ![Image 4](https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png) 
 
+<img src="https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png" width="700" height="700" />
+
 Fig. 16 : New Project
 
 For our example - given the project name as **“HelloLearningApiPipelineModule”**	
@@ -358,11 +376,15 @@ For our example - given the project name as **“HelloLearningApiPipelineModule�
     
 ![Image 17](https://user-images.githubusercontent.com/44580961/98464517-bf7e5900-21c3-11eb-9a71-1d03adfea118.png) 
 
+<img src="https://user-images.githubusercontent.com/44580961/98464517-bf7e5900-21c3-11eb-9a71-1d03adfea118.png" width="500" height="400" />
+
 Fig. 17 : Project and Solution name
 
 Now the project is created with the name _'HelloLearningApiPipelineModule.sln'_
   
 ![Image 18](https://user-images.githubusercontent.com/44580961/98464519-c2794980-21c3-11eb-81e7-dee1ccd54601.png) 
+
+<img src="https://user-images.githubusercontent.com/44580961/98464519-c2794980-21c3-11eb-81e7-dee1ccd54601.png" width="500" height="300" />
 
 Fig. 18 : Creation of Solution	
 
@@ -388,6 +410,8 @@ We should add NuGet package called _LearningApi_ to our project by following the
 	search for LearningApi and select --> Select the checkbox of LearningApi nuget --> Click on SELECT/ADD PACKAGE button 
 
 ![Image 20](https://user-images.githubusercontent.com/44580961/98464524-ca38ee00-21c3-11eb-9542-c05a6e9922f1.png) 
+
+<img src="https://user-images.githubusercontent.com/44580961/98464524-ca38ee00-21c3-11eb-9542-c05a6e9922f1.png" width="400" height="300" />
 
 Fig. 20 : Nuget package added to pipeline project
 
