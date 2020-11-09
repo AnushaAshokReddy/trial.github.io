@@ -23,6 +23,8 @@ Learning API is Machine Learning Foundation of a set of ML libraries fully imple
 
 Fig. 1 : Daenet GmbH and Frankfurt University of Applied Sciences
 
+<img src="https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png" width="200" height="200" />
+
 LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
 
 For example IAlgorithm, IScore, IResult, IPipeline module.
@@ -258,9 +260,17 @@ We should add NuGet package called _LearningApi_ to our project by following the
 	search for LearningApi and select --> Select the checkbox of LearningApi nuget --> Click on SELECT/ADD PACKAGE button (Fig. 10)
 
 	
-![Image 8](https://user-images.githubusercontent.com/44580961/98464428-1a638080-21c3-11eb-9789-9788f5e01a95.png)		![Image 9](https://user-images.githubusercontent.com/44580961/98464429-1df70780-21c3-11eb-9e40-7393ae09c9b8.png)			![Image 10](https://user-images.githubusercontent.com/44580961/98464431-218a8e80-21c3-11eb-8329-be2fe49b26e3.png)
+![Image 8](https://user-images.githubusercontent.com/44580961/98464428-1a638080-21c3-11eb-9789-9788f5e01a95.png)
 
-Fig. 8 : Step1, 	Fig. 9 : step2,  		Fig. 10 : step3
+Fig. 8 : NuGet package integration step1,
+
+![Image 9](https://user-images.githubusercontent.com/44580961/98464429-1df70780-21c3-11eb-9e40-7393ae09c9b8.png)
+
+Fig. 9 : NuGet package integration step2,  
+
+![Image 10](https://user-images.githubusercontent.com/44580961/98464431-218a8e80-21c3-11eb-8329-be2fe49b26e3.png)
+
+Fig. 10 : NuGet package integration step3
   
 A pop up with the packages installed along with the LearningApi NuGet package is displayed. Click on OK button.
 
