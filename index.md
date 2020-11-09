@@ -6,11 +6,15 @@
 
 <a href="#LearningApi_Concept">LearningApi Concept</a>
 
-<a href="#Algorithms&Modules">Introduction to Algorithms & Modules</a>
-
 <a href="#Supported_Modules&Algorithms _List">Supported Modules and Algorithms</a>
 
-<a href="#Example_Custom_Module&Algorithm">How to build the custom module and algorithm</a>
+<a href="#What_is_Algorithm">What is Algorithm?</a>
+
+<a href="#Example_Custom_Algorithm">How to build the custom algorithm</a>
+
+<a href="#What_is_Module">What is Module?</a>
+
+<a href="#Example_Custom_Module">How to build the custom module</a>
 
 <a href="#Your_Contribution">Contribution to Learning API?</a>
 
@@ -190,7 +194,7 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 
 [Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
 
-# What is Algorithm <a id="What_is_Algorithm"></a>
+# What is Algorithm? <a id="What_is_Algorithm"></a>
 
 Machine learning is a class of methods for automatically creating models from data. Machine learning algorithms are the engines of machine learning, meaning it is the algorithms that turn a data set into a model. Which kind of algorithm works best (supervised, unsupervised, classification, regression, etc.) depends on the kind of problem you’re solving, the computing resources available, and the nature of the data.
 
@@ -337,7 +341,7 @@ Fig. 15 : Result is shown here
 You can refer this example project in the [Example algorithm project in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/se-dystsys-2018-2019-softwareengineering/tree/Anusha_Ashok_Reddy/My%20work/My%20Project)
 
 -------------------------------------------------------------------------------------------------------------
-# What is Module <a id="Module"></a>
+# What is Module? <a id="What_is_Module"></a>
 
 A module in Machine Learning represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 Both algorithms and modules are independent of each other. 
@@ -346,11 +350,17 @@ While implementing an algorithm, it is initially trained using various number of
 
 For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the larger algorithms. 
 
+# How to build the custom module <a id="Example_Custom_Module"></a>
+
+The below solution demonstrates how to implement a custom pipeline module. In this example, convolution logic will be impemented.
+  
+This example is only for reference on steps to implement a solution using LearningApi. 
+
 ## Example Solution using LearningApi Pipeline Module :
 
-Pipeline module is a canal to send the data to the actual Algorithm. For a deeper knowledge on Pipeline Module click on <a href="#Module">Click Here..</a>
+Pipeline module is a canal to send the data to the actual Algorithm. For a deeper knowledge on Pipeline Module click on <a href="#WModule">Click Here..</a>
 
-Let's implement Pipelinemodule for a SobelConvolutionFilter Detection
+Let's implement Pipelinemodule for a Convolution Filter.
 
 ### Step 1: Create a solution for Pipeline module
 
