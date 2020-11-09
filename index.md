@@ -27,7 +27,7 @@ LearningAPI already has interfaces pre declared which we can easily access, unde
 
 For example IAlgorithm, IScore, IResult, IPipeline module.
 
-![Image 2](https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png)
+<!--![Image 2](https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png)-->
 
 <img src="https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png" width="700" height="200" />
 
@@ -218,9 +218,9 @@ Use the selectors on the left side to choose the different types of programming 
 
     Click on NEXT 	
 
-![Image 4](https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png) 
+<!--![Image 4](https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png) -->
 
-<img src="https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png" width="600" height="500" />
+<img src="https://user-images.githubusercontent.com/44580961/98464414-04ee5680-21c3-11eb-82fe-910a29ed7d4d.png" width="600" height="450" />
 
 Fig. 4 : New Project
 
