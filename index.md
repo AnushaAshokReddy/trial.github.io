@@ -29,7 +29,7 @@ For example IAlgorithm, IScore, IResult, IPipeline module.
 
 ![Image 2](https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png)
 
-<img src="https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png" width="400" height="400" />
+<img src="https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png" width="700" height="300" />
 
 An example code is shown in the Fig. 3 : 
 
