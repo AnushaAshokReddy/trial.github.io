@@ -8,11 +8,11 @@
 
 <a href="#What_is_Algorithm">What is Algorithm?</a>
 
-<a href="#Example_Custom_Algorithm">How to build the custom algorithm</a>
+<a href="#Example_Custom_Algorithm">How to build the custom algorithm?</a>
 
 <a href="#What_is_Module">What is Module?</a>
 
-<a href="#Example_Custom_Module">How to build the custom module</a>
+<a href="#Example_Custom_Module">How to build the custom module?</a>
 
 <a href="#Supported_Algorithms&Modules_List">Supported Algorithms and Modules</a>
 
@@ -195,7 +195,7 @@ Machine learning is a class of methods for automatically creating models from da
 
 An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
 
-# How to build the custom algorithm <a id="Example_Custom_Algorithm"></a>
+# How to build the custom algorithm? <a id="Example_Custom_Algorithm"></a>
 
   The below solution demonstrates how to implement a custom algorithm. In this example, the SUM and AVERAGE logics will be impemented.
   
@@ -345,7 +345,7 @@ While implementing an algorithm, it is initially trained using various number of
 
 For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the larger algorithms. 
 
-# How to build the custom module <a id="Example_Custom_Module"></a>
+# How to build the custom module? <a id="Example_Custom_Module"></a>
 
 The below solution demonstrates how to implement a custom pipeline module. In this example, convolution logic will be impemented.
   
@@ -473,13 +473,13 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 | Canny edge detector | [Github_CannyEdgeDetector Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/CannyEdgeDetector) | Available    | Not Available yet |
 | SDR Classifier | [Github_SDR Classifier Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/SDR%20Classifier) | Available | [Github_SDR Classifier Documentation](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/SDR%20Classifier/Documentation) |
 
-# How can you contribute to Learning API? <a id="Your_Contribution"></a>
+# How can you contribute to LearningApi? <a id="Your_Contribution"></a>
 
 If you have implemented a custom module or algorithm and want to integrate it to LearningAPI, then you can do the following, 
 
 - Contact us - implement a page for this 
 - Implement your algorithm or/and module
-- create the pull request
+- Create the pull request
 - Create an issue in the Repository
 
 
