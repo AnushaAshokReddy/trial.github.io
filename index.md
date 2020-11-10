@@ -56,9 +56,9 @@ The structure for IPipeline Interface:
 
 # The LearningApi Concept <a id="LearningApi_Concept"></a>
 
-LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
+LearningAPI is a framework for developing software machine learning applications. This includes predefined classes and functions that can be used to process input, train the system and give an accurate predicted answer.
 
-  In order use LearningApi, we should install the Nuget package called **_LearningApi_** into our project. 
+  In order to use LearningApi, we should install the Nuget package called **_LearningApi_** into our project (this will be demonstarted in <a href="#Example_Custom_Algorithm">Example custom algorithm section</a>
   
   Basically a NuGet package is a single ZIP file with the *.nupkg* extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number.
   
@@ -68,7 +68,7 @@ More information can be found on [Click here for more information on NuGet packa
 
 To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)
 
-**IAlgorithm** - The structure of _IAlgorithm_ has 2 phases:
+**IAlgorithm** - The _IAlgorithm_ interface has 2 phases:
 
 1. _**IResult**_ – IResult is used to set and get the final result of the algorithm and store it. We use IResult for the PREDICT phase - This is the final phase where we get the perfect output for the input provided by the user on the basis of the algorithm we give.In this prediction logic should be written as shown in  screenshot 6.
 
@@ -198,7 +198,7 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 
 | Algorithm | LearningApi Repository | .md file available | Documentation available? |
 |:--- |:--- |:--- |:--- |
-| RingProjection | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/RingProjection | Available | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/RingProjection/Documentation |
+| RingProjection | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi<br>/tree/master/LearningApi/src/MLAlgorithms/RingProjection | Available | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/RingProjection/Documentation |
 | SVM - SupportVectorMachine | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SupportVectorMachine    | Available | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/SupportVectorMachine/Documentation |
 | Scalar encoder - ScalarEncoder in HTM  | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/ScalarEncoder%20in%20HTM | Not Available yet | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/ScalarEncoder%20in%20HTM/Documentation |
 | anamoly latest - AnomDetectLatest | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/AnomDetectLatest | Available | https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/MLAlgorithms/AnomDetectLatest/Documentation |
