@@ -37,7 +37,9 @@ For example IAlgorithm, IScore, IResult, IPipeline module.
 
 An example code is shown in the Fig. 3 : 
 
-![Image 3](https://user-images.githubusercontent.com/44580961/98464411-01f36600-21c3-11eb-877f-3c3a3815b1c0.png)
+<!--![Image 3](https://user-images.githubusercontent.com/44580961/98464411-01f36600-21c3-11eb-877f-3c3a3815b1c0.png)-->
+
+<img src="https://user-images.githubusercontent.com/44580961/98464411-01f36600-21c3-11eb-877f-3c3a3815b1c0.png" width="500" height="200" />
 
 LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. One pipeline module is defined as implementation of interface IPipeline. 
 
