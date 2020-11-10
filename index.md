@@ -436,13 +436,13 @@ Fig. 22 : IPipeline module for example module
 
 ## Result of Module 
 
-According to the algorithm, the set of data of temperature is given and taken the average of the temperature. The data for chance of precipitation is taken an average. The ratio of average of temperature and average of chance of precipitation is given to be our score. When this score is multiplied with each data given, we get the precipitation value predicted.
+Explain result and give picture here.
 
 # Supported Algorithms and Modules <a id="Supported_Algorithms&Modules_List"></a>
 
 All the supported Modules and Algorithms are listed in an excel sheet. Also, the information about the documentation and coding source files availabiliy in the LearningApi repository can be found here.
 
-[Click here to find the list..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
+[Click here to find the list in Git Repository..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LearningApi/src/AlgorithmsModules%20_list.xlsx)
 
 ## Machine Learning Algorithms
 
