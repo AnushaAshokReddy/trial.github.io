@@ -6,32 +6,77 @@
 
 <a href="#LearningApi_Introduction">LearningApi Introduction</a>
 
-<a href="#LearningApi_Concept">LearningApi Concept</a>
+<a href="#Supported_Algorithms&Modules_List">Supported Algorithms and Modules</a>
 
-<a href="#What_is_Algorithm">What is Algorithm?</a>
+<a href="#LearningApi_Concept">The LearningApi concept</a>
 
-<a href="#Example_Custom_Algorithm">How to build the custom algorithm?</a>
-
-<a href="#What_is_Module">What is Module?</a>
+<a href="#What_is_Module">What is a Learning API Module?</a>
 
 <a href="#Example_Custom_Module">How to build the custom module?</a>
 
-<a href="#Supported_Algorithms&Modules_List">Supported Algorithms and Modules</a>
+<a href="#What_is_Algorithm">What is a Learning API algorithm?</a>
+
+<a href="#Example_Custom_Algorithm">How to build the custom algorithm?</a>
 
 <a href="#Your_Contribution">Contribution to Learning API?</a>
 
 
 # LearningApi Introduction <a id="LearningApi_Introduction"></a>
 
-Learning API is Machine Learning Foundation of a set of ML libraries fully implemented as .NET Standard library. It provides a unique processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with Daenet GmbH and Frankfurt University of Applied Sciences.
+Learning API is a Machine Learning Foundation of a set of ML algorithms implemented in .NET Core/C#. It provides a unique pipeline processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with daenet GmbH and Frankfurt University of Applied Sciences.
 
 ![Image 1](https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png)
 
-Fig. 1 : Daenet GmbH and Frankfurt University of Applied Sciences
+Fig. 1 : daenet GmbH and Frankfurt University of Applied Sciences
 
 LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
 
-For example IAlgorithm, IScore, IResult, IPipeline module.
+Before you start with the **LearningAPI**, you should get familiar with several interfaces: IPipeline Module, IAlgorithm, IScore, IResult. These interfaces are shared across all algorithms inside of the **LearningAPI**.
+
+LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. Typically in Machine Learning applications, developers need to combine multiple algorithms or tasks,
+For example, imagine you want to train a supervised algorithm from historical power consumption data to be able to predict the power consumtion. The training data is contained in the CSV file, which contains features like power consumtion in W, outside temperature, the wind etc. To solve the problem, you first have to read the data from CSV, then to normalize features (ref to normalization todo) and then to train the algorithm.
+You could think about these tasks as follow8s:
+
+1. Read CSV
+2. Normalize the data
+3. Train the data.
+
+After all, you will have a trained instance of the algorithm *algInst*, which can be used for prediction:
+
+4 Use *algInst* to predict the consumption based on a given temperature and wind.
+
+To solve this problem with the **LearningAPI** the following pseudo can be used:
+
+```
+var api = new LearningApi(config)
+api.UseCsvReaderModeule('csvFileName.csv')
+api.UseNormilizerModule();
+api.Train();
+// Prediction
+var predictedPower = api.Predict(108W, 45 wind force);
+```
+
+// provide here a real example.
+
+One pipeline module is defined as implementation of interface IPipeline.
+
+The IPipeline Interface is defined as follows:
+
+```csharp
+ public interface IPipelineModule
+ {
+ }
+ public interface IPipelineModule<TIN, TOUT> : IPipelineModule
+ {
+        TOUT Run(TIN data, IContext ctx);
+ }
+```
+
+With this definition the developer can run the implementation if the module with the following code:
+
+```csharp
+	
+```
 
 <!--![Image 2](https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png)-->
 
@@ -78,7 +123,7 @@ To find out more details, click on [Information..](https://docs.microsoft.com/en
 
 2. _**IScore**_ – Iscore is used to set and get the values of the variables used in the project. We use IScore for RUN and TRAIN methods.
 
-**RUN** – This is the evaluation part where the random data will be given to our system to test whether the correct output is being displayed after the training session. Here, we call TRAIN method internally.
+**RUN**/**TRAIN** – This is the training (learning) part where the random data will be given to our system to test whether the correct output is being displayed after the training session. Here, we call TRAIN method internally.
 
 **TRAIN** – Here we will train the system with our specific set of data I.e input and the output as in how to function. Algorithm of the function is written in Train method.
 
@@ -90,7 +135,7 @@ To find out more details, click on [Information..](https://docs.microsoft.com/en
 
 Following example illustrates how to setup the learning pipeline:
 
-```markdown
+```csharp
 public void SimpleSequenceTest()
         {
             LearningApi api = new LearningApi();
@@ -162,21 +207,21 @@ The code shown above setups the pipeline of two modules.
 
 2.Second module is setup by the following line of code:
 
-```markdown
+```csharp
 api.UsePerceptron(0.02, 10000);
 ```
 It injects the perceptron algorithm in the pipeline.
 
 Execution of the pipeline is started with following line of code:
 
-```markdown
+```csharp
 IScore score = api.Run() as IScore;
 ```
 
 When the pipeline starts, modules are executed in the sequenceordered as they are added to the pipeline. 
 In this case, first action module will be executed and then perceptron algorithm. After running of the pipeline model is trained. Next common step in Machine Learning applications is called evaluation of the model. Following code in previous example shows how to evaluation (predict) the model:
 
-```markdown
+```csharp
 double[][] testData = new double[4][];
             testData[0] = new double[] { 2.0, 0.0 };
             testData[1] = new double[] { 2000.0, 0.0 };
