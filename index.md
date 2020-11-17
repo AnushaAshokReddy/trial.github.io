@@ -285,79 +285,99 @@ Lets take a simple example to build a model to predict the HOUSE PRICE. For this
 
 **Input phase :** 
 
-Let's consider 3 simple features 
+Let's consider 2 simple features (features are the inputs)
 	
 	*Size* - Size of the house
 	
 	*Room* - Number of rooms
 	
-	*Price* - Price of the house based on *size* feature
+and 1 label (the output features is called label)
+
+	*Price* - Price of the house based on *room* feature
 	
-Now we should train the model with the above 2 features by giving a real data (shown below) in csv file  :
+Now we should train the model with the above 2 features and a label by giving a real data (shown below) in csv file, we have taken the normalised data  :
 
-| Size in sq.m | Room | Price | 
+| Size | Room | Price | 
 |:--- |:--- |:--- |
-| 10 | 510 | 
-| 20 | 1010 | 
-| 30 | 1510 | 
+| 1 | 1 | 6 |
+| 1 | 2 | 8 |
+| 2 | 1 | 9 |
+| 2 | 2 | 11 |
+| 3 | 1 | 12 |
+| 3 | 2 | 14 |
+| 4 | 1 | 15 |
+| 4 | 2 | 17 |
+| 5 | 1 | 18 |
+| 5 | 2 | 20 |
 
-The model reads the csv file with the following code :
+The model reads the csv file with the following interface :
 
 ```csharp
  api.UseCsvDataProvider(trainDataPath, ',', false);
 ```
+we should provide the meta data and label index for our csv file in the datadescriptor. Meta data is the declaration of columns in csv file and label index is the index number of feature based on whihc the prediction should be made. 
+
+The following is the code snippet for the datadescriptor :
+
+```csharp
+ private DataDescriptor LoadMetaData()
+        {
+            var des = new DataDescriptor();
+
+            des.Features = new Column[3];
+
+            des.LabelIndex = 2;
+            return des;
+        }
+```
 
 **Training phase :** The model reads the data in from csv file and based on the data given, after training the model, the model should be able to predict the result y. 
 
-The linear regression formula for the above situation is **PRICE = 50 * SIZE + 10**. This is similar to **y=mx+c** , 
+The linear regression formula for the above situation is **PRICE = 3 * SIZE + 2 * ROOM + 1 **
+
+This is similar to **y = m1 x1 + m2 x2 + c** , 
 
 where y is the predicted price of the house
 
-      x is the size of house based on which the price should be predicted
+      x1 is the Size of house based on which the price should be predicted
       
-      m is the weight (w)
+      x2 is the Room 
       
-      c is the bias (b)
+      m1/3 is the weight (w1) for feature PRICE and m2/2 i the weight (w2) for feature ROOM
+      
+      c/1 is the bias (b)
       
 Here m and c are weight and bias - Suppose the model has to take a predict the price of the house between many prices. So it will choose one value after analyzing all different options. Analyzing will give some percentage prediction to all the values selected by 'w' on the basis of experience. This percentage is weight in terms of ML. These percentages do not have to be exact always. It might be wrong and it will be confirmed after crossing the values. Whatever will be the value selected by weight accordingly percentages will change , so that next time prediction accuracy will be more as compared to previos predictions.
 
 we use *Mean Square Error* concept here to find out the error differences and help the model to finalise the least error value to be more accurate for the prediction. 
 
-Initially let's initialise the weight and bias (let this be w=2 and b=1). This w and b are used for calculating the prices across all the data of size given :
+Initially let's initialise the weight and bias (let this be w1=2 , w2=2 and b=1). This w and b are used for calculating the prices across all the data of size given :
 
-**1st data : w=2 and b=1, size 10sq.m**
+**1st data : w1=2 , w2=2 and b=1, size 10sq.m**
 
-	substitute in formula -- y1^ = 2*10 + 1 = 21
+	substitute in formula -- y1^ = 2*1 + 2*1 + 1 = 5
 	
-	Square Error -- SE1 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+	Square Error -- SE1 = (actual price for size 1 - predicted price for size 1)^2 
 	
-			= (510 - 21)^2 = 489^2 = 239121
+			= (6 - 5)^2 = 1^2 = 1
 			
 **2nd data : w=2 and b=1, size 20**
 
-	substitute in formula -- y2^ = 2*20 + 1 = 41
+	substitute in formula -- y1^ = 2*1 + 2*2 + 1 = 7
 	
-	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+	Square Error -- SE2 = (actual price for size 1 - predicted price for size 1)^2 
 	
-			= (1010 - 41)^2 = 969^2 = 938961
-
-**3rd data : w=2 and b=1, size 30**
-
-	substitute in formula -- y2^ = 2*30 + 1 = 61
-	
-	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
-	
-			= (1510 - 61)^2 = 969^2 = 2099601
+			= (8 - 7)^2 = 1^2 = 1
 			
-this calculation occurs for all the values of size feature with the initialised w and b values.
+this calculation occurs for all the values of size and room features with the initialised w and b values.
 
 Mean square error calculation (MSE1)-- 
 
-    	     = (SE1+SE2+SE3)/ 3 
+    	     = (SE1+SE2+....)/ 10
     
-    	     = (239121+938961+2099601)/3 
+    	     = (1+1*....)/10
     
-	MSE1 = **1092561**
+	MSE1 = x
 
 ```csharp
 for (int trainDataIndex = 0; trainDataIndex < numTrainData; trainDataIndex++)
@@ -378,7 +398,9 @@ Likewise this will continue with other weights and biases. New weights and biase
 
 Hence new w and new b values would be :
 
-	W(new) = W(old) - (slope derivative of w * LR)
+	W1(new) = W1(old) - (slope derivative of w1 * LR)
+	
+	W2(new) = W2(old) - (slope derivative of w2 * LR)
 	
 	b(new) = b(old) - (slope derivative of b * LR)
 
@@ -419,11 +441,11 @@ The following lines of code initialises LR and epochs at the starting of the pro
         }
 ```
 
-Now in 1st epoch, MSE1 is 1092561, likewise after 20 epochs, MSE20 would be (lets assume) some 0.001. Therefore the mean square error is completely reduced which means the error is less and the W and B value of this least MSE is the right value for the final formula. 
+Now in 1st epoch, MSE1 is some x value, likewise after 1000 epochs, MSE20 would be (lets assume) some 0.001. Therefore the mean square error is completely reduced which means the error is less and the W and B value of this least MSE is the right value for the final formula. 
 
-Assume, for the correct epoch (20th epoch), model has taken the values of W=50.09 and B=9.96 (near to the value W=50 nad B=10 as shown in the initial forula of the logic).
+Assume, for the correct epoch (1000th epoch), model has taken the values of W1=2.98, W2=2.02 and B=1.02 (near to the value W1=3, W2=2 and B=1 as shown in the initial forula of the logic).
 
-	PRICE = 50.09 * SIZE + 9.96
+	PRICE = 2.98 * SIZE + 2.02 * ROOM + 1.02
 	
 **Output Phase :** Now, the model has an exact formula (found out as the output of training). This formula will be used by the model to predict price of the house with any further sizes of the house. 
 
@@ -451,7 +473,7 @@ For our example - given the project name as **“HelloLearningApiExampleAlgorith
     
 <!--![Image 5]() -->
 
-<img src="" width="600" height="450" />
+<img src="https://user-images.githubusercontent.com/44580961/99399484-bac84c00-290b-11eb-93b1-504faf36eec1.png" width="600" height="450" />
 
 Fig. 5 : Project and Solution name
 
@@ -459,7 +481,7 @@ Now the project is created with the name _'HelloLearningApiExampleAlgorithm.sln'
   
 <!--![Image 6](https://user-images.githubusercontent.com/44580961/98464421-0ddf2800-21c3-11eb-9951-f66298e25891.png) -->
 
-<img src="()" width="550" height="300" />
+<img src="(https://user-images.githubusercontent.com/44580961/99399494-bd2aa600-290b-11eb-92ba-7bbf1bc62f0a.png)" width="550" height="300" />
 
 Fig. 6 : Creation of Solution	
 	
@@ -471,7 +493,7 @@ We have to change the names accordingly. Here for example, change the class libr
 
 ExampleLearningApiAlgorithm.cs serves as the main class folder for the algorithm.
 
-![Image 7]() 
+![Image 7](https://user-images.githubusercontent.com/44580961/99399499-c0be2d00-290b-11eb-9276-3512c53aa137.png) 
 
 Fig. 7 : The project and class library folder structure
 
@@ -481,19 +503,19 @@ We should create a Test folder where we can initiate the program and command the
 
 	Select the project folder --> Right click --> Add --> New Project
 
-![Image 8]() 
+![Image 8](https://user-images.githubusercontent.com/44580961/99399514-c4ea4a80-290b-11eb-939f-4ea14c0ee485.png) 
 
 Select the Test file 'MSTest project c#' and click on NEXT button as shown in the below Fig. 9.
 
-![Image 9]() 
+![Image 9](https://user-images.githubusercontent.com/44580961/99399521-c87dd180-290b-11eb-8e5b-42adaa90a054.png) 
 
 Name the project name as **HelloLearningApiExampleAlgorithmTest** and click on NEXT button. 
 
-![Image 10]() 
+![Image 10](https://user-images.githubusercontent.com/44580961/99399539-d16ea300-290b-11eb-9336-5d3f6710190b.png) 
 
 Test project is created under the main solution and rename the class file as HelloLearningApiExampleAlgorithmTest1 as shown in the below Fig. 11.
 
-![Image 11]() 
+![Image 11](https://user-images.githubusercontent.com/44580961/99399545-d3d0fd00-290b-11eb-9c1a-135f301f7f64.png) 
 
 
 ### Step 3 : Add NuGet Package 'LearningApi' to both projects 
@@ -510,7 +532,7 @@ We should add NuGet package called _LearningApi_ to both project by following th
 	
 <!--![Image 12]()-->
 
-<img src="" width="400" height="550" />
+<img src="https://user-images.githubusercontent.com/44580961/99399553-d7fd1a80-290b-11eb-8a42-8e6e11eb47a2.png" width="400" height="550" />
 
 Fig. 12 : NuGet package integration step1,
 
@@ -518,7 +540,7 @@ In the pop up, search for the package LearningAPI , select the latest version an
 
 <!--![Image 13]()-->
 
-<img src="" width="600" height="450" />
+<img src="https://user-images.githubusercontent.com/44580961/99399561-daf80b00-290b-11eb-868e-e4ce3329ad56.png" width="600" height="450" />
 
 Fig. 13 : NuGet package integration step2,  
 
@@ -556,7 +578,7 @@ private DataDescriptor LoadMetaData()
 
 **In Algorithm.cs file** , we implement the *IAlgorithm* in the code which is taken from LearningApi NuGet package. *IAlgorithm*  is in the library and it has a separate structure which we have to use in the project as we already have discussed in the section <a href="#LearningApi_Concept">LearningApi Concept</a>. 
 
-![Image 14]()
+![Image 14](https://user-images.githubusercontent.com/44580961/99401608-62467e00-290e-11eb-8197-6dfa9aa06f32.png)
 
 Fig. 14 : IAlgorithm interface integrated in the project
 
@@ -616,7 +638,7 @@ Extension file in a project facilitates other users to utilise our project code 
       
       Select Empty class --> Give the class name ExampleLearningApiAlgorithmExtension --> Click on NEW button (Fig. right side)
 
-![Image 15]()
+![Image 15](https://user-images.githubusercontent.com/44580961/99399573-df242880-290b-11eb-8487-36d3aeaf4b28.png)
 
 Fig. 15 : Adding Extension class to ALgorithm project 
 
@@ -659,9 +681,9 @@ public class LinearRegressionScore : IScore
 
 According to the algorithm, the set of data of house details is given and trained the model with these data. The data for house price is used to calculate the mean square error and When this score is multiplied with each data given, we get the house price value predicted.
 
-![Image 15]()
+![Image 16]()
 
-Fig. 15 : Result is shown here
+Fig. 16 : Result is shown here
 
 You can refer this example project in the [Example algorithm project in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/se-dystsys-2018-2019-softwareengineering/tree/Anusha_Ashok_Reddy/My%20work/My%20Project)
 
