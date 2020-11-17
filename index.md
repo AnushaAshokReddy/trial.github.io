@@ -493,7 +493,10 @@ We have to change the names accordingly. Here for example, change the class libr
 
 ExampleLearningApiAlgorithm.cs serves as the main class folder for the algorithm.
 
-![Image 7](https://user-images.githubusercontent.com/44580961/99399499-c0be2d00-290b-11eb-9276-3512c53aa137.png) 
+<!--![Image 7]-->
+
+<img src="(https://user-images.githubusercontent.com/44580961/99399499-c0be2d00-290b-11eb-9276-3512c53aa137.png)" width="500" height="300" />
+
 
 Fig. 7 : The project and class library folder structure
 
