@@ -80,8 +80,10 @@ public interface IAlgorithm : IPipelineModule<double[][], IScore>, IPipelineModu
 }
 ```
 -------------------------------
-// 
-An example is explained in the section <a href="#Example_Custom_Algorithm">'PLease refer this section to understand 'How to build a LearningAPI algorithm?'</a>
+
+
+An example is explained in the below section -
+<a href="#Example_Custom_Algorithm">'PLease refer this section to understand 'How to build a LearningAPI algorithm?'</a>
 
 -------------------------------
 
@@ -123,7 +125,7 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 
 LearningAPI is a framework for developing software machine learning applications. This includes predefined classes and functions that can be used to process input, train the system and give an accurate predicted answer.
 
-  In order to use LearningApi, we should install the Nuget package called **_LearningApi_** into our project (this will be demonstarted in <a href="#Example_Custom_Algorithm">Example custom algorithm section</a>
+  In order to use LearningApi, we should install the Nuget package called **_LearningApi_** into our project (this will be demonstarted in <a href="#Example_Custom_Algorithm">Example custom algorithm section</a>)
   
   Basically a NuGet package is a single ZIP file with the *.nupkg* extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number.
   
@@ -131,7 +133,7 @@ LearningAPI is a framework for developing software machine learning applications
   
 More information can be found on [Click here for more information on NuGet packages..](https://docs.microsoft.com/en-us/visualstudio/mac/nuget-walkthrough?view=vsmac-2019)
 
-To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)
+--!>To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)--!
 
 **IAlgorithm** - The _IAlgorithm_ interface has 2 phases:
 
@@ -157,8 +159,6 @@ Both algorithms and modules are independent of each other.
 While implementing an algorithm, it is initially trained using various number of data available already to make the algorithm learn how to predict the results for an unknown input in the later stages. Thus the set of data is very important. This data is supposed to be clean with all details. Sometimes in algorithms when we don't get clean data, pipeline modules are used for pre-processing of the data. 
 
 For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the larger algorithms.
-
-In the above example,
 
 Following example illustrates how to setup the learning pipeline for Data Descriptor:
 
@@ -233,6 +233,7 @@ The code shown above setups the pipeline of two modules.
 1.First one is so called action module, which defines the custom code to be executed. 
 ```csharp
 api.UseActionModule<object, double[][]>((notUsed, ctx)
+```
 
 2.Second module injects the perceptron algorithm in the pipeline and it is setup by the following line of code:
 
@@ -278,21 +279,24 @@ An algorithm is a set of logical coding which is trained with lots and lots of d
 
 Lets take a simple example to build a model to predict the HOUSE PRICE. For this, we have 3 phases of tasks to do. 
 
-1.Input Phase
-2.Training Phase
-3.Output 
+1. Input Phase
+2. Training Phase
+3. Output 
 
 **Input phase :** 
 
-Let's consider 2 simple features 
+Let's consider 3 simple features 
+	
 	*Size* - Size of the house
+	
 	*Room* - Number of rooms
+	
 	*Price* - Price of the house based on *size* feature
 	
 Now we should train the model with the above 2 features by giving a real data (shown below) in csv file  :
 
-| Size in sq.m | Price | 
-|:--- |:--- |
+| Size in sq.m | Room | Price | 
+|:--- |:--- |:--- |
 | 10 | 510 | 
 | 20 | 1010 | 
 | 30 | 1510 | 
@@ -306,9 +310,13 @@ The model reads the csv file with the following code :
 **Training phase :** The model reads the data in from csv file and based on the data given, after training the model, the model should be able to predict the result y. 
 
 The linear regression formula for the above situation is **PRICE = 50 * SIZE + 10**. This is similar to **y=mx+c** , 
+
 where y is the predicted price of the house
+
       x is the size of house based on which the price should be predicted
+      
       m is the weight (w)
+      
       c is the bias (b)
       
 Here m and c are weight and bias - Suppose the model has to take a predict the price of the house between many prices. So it will choose one value after analyzing all different options. Analyzing will give some percentage prediction to all the values selected by 'w' on the basis of experience. This percentage is weight in terms of ML. These percentages do not have to be exact always. It might be wrong and it will be confirmed after crossing the values. Whatever will be the value selected by weight accordingly percentages will change , so that next time prediction accuracy will be more as compared to previos predictions.
@@ -316,27 +324,40 @@ Here m and c are weight and bias - Suppose the model has to take a predict the p
 we use *Mean Square Error* concept here to find out the error differences and help the model to finalise the least error value to be more accurate for the prediction. 
 
 Initially let's initialise the weight and bias (let this be w=2 and b=1). This w and b are used for calculating the prices across all the data of size given :
+
 **1st data : w=2 and b=1, size 10sq.m**
+
 	substitute in formula -- y1^ = 2*10 + 1 = 21
+	
 	Square Error -- SE1 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+	
 			= (510 - 21)^2 = 489^2 = **239121**
 			
 **2nd data : w=2 and b=1, size 20**
+
 	substitute in formula -- y2^ = 2*20 + 1 = 41
+	
 	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+	
 			= (1010 - 41)^2 = 969^2 = **938961**
 
-**2nd data : w=2 and b=1, size 30**
+**3rd data : w=2 and b=1, size 30**
+
 	substitute in formula -- y2^ = 2*30 + 1 = 61
+	
 	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+	
 			= (1510 - 61)^2 = 969^2 = **2099601**
 			
 this calculation occurs for all the values of size feature with the initialised w and b values.
 
 Mean square error calculation (MSE1)-- 
-    = (SE1+SE2+SE3)/ 3 
-    = (239121+938961+2099601)/3 
-MSE1 = **1092561**
+
+    	     = (SE1+SE2+SE3)/ 3 
+    
+    	     = (239121+938961+2099601)/3 
+    
+	MSE1 = **1092561**
 
 ```csharp
 for (int trainDataIndex = 0; trainDataIndex < numTrainData; trainDataIndex++)
