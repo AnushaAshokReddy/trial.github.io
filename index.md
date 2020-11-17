@@ -133,7 +133,7 @@ LearningAPI is a framework for developing software machine learning applications
   
 More information can be found on [Click here for more information on NuGet packages..](https://docs.microsoft.com/en-us/visualstudio/mac/nuget-walkthrough?view=vsmac-2019)
 
---!>To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)--!
+<!--To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)-->
 
 **IAlgorithm** - The _IAlgorithm_ interface has 2 phases:
 
@@ -331,7 +331,7 @@ Initially let's initialise the weight and bias (let this be w=2 and b=1). This w
 	
 	Square Error -- SE1 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
 	
-			= (510 - 21)^2 = 489^2 = **239121**
+			= (510 - 21)^2 = 489^2 = 239121
 			
 **2nd data : w=2 and b=1, size 20**
 
@@ -339,7 +339,7 @@ Initially let's initialise the weight and bias (let this be w=2 and b=1). This w
 	
 	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
 	
-			= (1010 - 41)^2 = 969^2 = **938961**
+			= (1010 - 41)^2 = 969^2 = 938961
 
 **3rd data : w=2 and b=1, size 30**
 
@@ -347,7 +347,7 @@ Initially let's initialise the weight and bias (let this be w=2 and b=1). This w
 	
 	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
 	
-			= (1510 - 61)^2 = 969^2 = **2099601**
+			= (1510 - 61)^2 = 969^2 = 2099601
 			
 this calculation occurs for all the values of size feature with the initialised w and b values.
 
@@ -412,7 +412,7 @@ The following lines of code initialises LR and epochs at the starting of the pro
 	private double m_LearningRate;
         private int m_Epochs;
 
-        public LinearRegression(double learningRate, int epochs)
+        public HelloLearningApiExampleAlgorithm (double learningRate, int epochs)
         {
             m_LearningRate = learningRate;
             m_Epochs = epochs;
