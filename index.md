@@ -481,7 +481,7 @@ Now the project is created with the name _'HelloLearningApiExampleAlgorithm.sln'
   
 <!--![Image 6](https://user-images.githubusercontent.com/44580961/98464421-0ddf2800-21c3-11eb-9951-f66298e25891.png) -->
 
-<img src="(https://user-images.githubusercontent.com/44580961/99399494-bd2aa600-290b-11eb-92ba-7bbf1bc62f0a.png)" width="550" height="300" />
+<img src="(https://user-images.githubusercontent.com/44580961/99438805-5375c080-293a-11eb-928a-ba234162a1ea.png)" width="450" height="300" />
 
 Fig. 6 : Creation of Solution	
 	
@@ -495,8 +495,7 @@ ExampleLearningApiAlgorithm.cs serves as the main class folder for the algorithm
 
 <!--![Image 7]-->
 
-<img src="(https://user-images.githubusercontent.com/44580961/99399499-c0be2d00-290b-11eb-9276-3512c53aa137.png)" width="500" height="300" />
-
+<img src="(https://user-images.githubusercontent.com/44580961/99438878-743e1600-293a-11eb-985d-20de14d1dda5.png)" width="450" height="300" />
 
 Fig. 7 : The project and class library folder structure
 
@@ -518,10 +517,12 @@ Name the project name as **HelloLearningApiExampleAlgorithmTest** and click on N
 
 Test project is created under the main solution and rename the class file as HelloLearningApiExampleAlgorithmTest1 as shown in the below Fig. 11.
 
-![Image 11](https://user-images.githubusercontent.com/44580961/99399545-d3d0fd00-290b-11eb-9c1a-135f301f7f64.png) 
+<!--![Image 11](https://user-images.githubusercontent.com/44580961/99399545-d3d0fd00-290b-11eb-9c1a-135f301f7f64.png) -->
+
+<img src="(https://user-images.githubusercontent.com/44580961/99399545-d3d0fd00-290b-11eb-9c1a-135f301f7f64.png)" width="450" height="300" />
 
 
-### Step 3 : Add NuGet Package 'LearningApi' to both projects 
+### Step 4 : Add NuGet Package 'LearningApi' to both projects 
 
 We should add NuGet package called _LearningApi_ to both project by following the steps below, 
 
@@ -543,13 +544,13 @@ In the pop up, search for the package LearningAPI , select the latest version an
 
 <!--![Image 13]()-->
 
-<img src="https://user-images.githubusercontent.com/44580961/99399561-daf80b00-290b-11eb-868e-e4ce3329ad56.png" width="600" height="450" />
+<img src="https://user-images.githubusercontent.com/44580961/99399561-daf80b00-290b-11eb-868e-e4ce3329ad56.png" width="800" height="450" />
 
 Fig. 13 : NuGet package integration step2,  
 
 A pop up with the packages installed along with the LearningApi NuGet package is displayed. Click on OK/Accept button.
 
-### Step 4 : Start the Code for the project and test .cs files  <a href="#Example_Algoirthm">LearningApi Example Algorithm</a>
+### Step 5 : Start the Code for the project and test .cs files  <a href="#Example_Algoirthm">LearningApi Example Algorithm</a>
 
 **In Test.cs file** , we direct the model to read the csv file and take the data for training of the model. We also provide data mapper to extract the data from the columns with the following code :
 
@@ -633,7 +634,7 @@ for (int epoch = 0; epoch < m_Epochs; epoch++)
 ```
 In PREDICT interface, all the logics for computing mean square error, outputlabels are provided. 
 
-### Step 5 : Create the *Extension.cs* , *Result.cs* and *Score.cs* files
+### Step 6 : Create the *Extension.cs* , *Result.cs* and *Score.cs* files
 
 Extension file in a project facilitates other users to utilise our project code in their implementations. Calling this file in other projects enables the project code in other projects.
       
