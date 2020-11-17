@@ -29,35 +29,34 @@ Learning API is a Machine Learning Foundation of a set of ML algorithms implemen
 
 Fig. 1 : daenet GmbH and Frankfurt University of Applied Sciences
 
-LearningAPI already has interfaces pre declared which we can easily access, understand and use in our project.
+LearningAPI already has interfaces that are pre declared which we can easily access, understand and use in our project.
 
-Before you start with the **LearningAPI**, you should get familiar with several interfaces: IPipeline Module, IAlgorithm, IScore, IResult. These interfaces are shared across all algorithms inside of the **LearningAPI**.
+Before you start with the **LearningAPI**, you should get familiarised with several interfaces: IPipeline Module, IAlgorithm, IScore, IResult. These interfaces are shared across all algorithms inside of the **LearningAPI**.
 
-LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. Typically in Machine Learning applications, developers need to combine multiple algorithms or tasks,
+LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. Typically in Machine Learning applications, developers need to combine multiple algorithms or tasks to achieve a final task or result.
+
 For example, imagine you want to train a supervised algorithm from historical power consumption data to be able to predict the power consumtion. The training data is contained in the CSV file, which contains features like power consumtion in W, outside temperature, the wind etc. To solve the problem, you first have to read the data from CSV, then to normalize features (ref to normalization todo) and then to train the algorithm.
-You could think about these tasks as follow8s:
+
+You could think about these tasks as follows:
 
 1. Read CSV
 2. Normalize the data
 3. Train the data.
 
-After all, you will have a trained instance of the algorithm *algInst*, which can be used for prediction:
+After the above process, you will have a trained instance of the algorithm *algInst*, which can be used for prediction:
 
-4 Use *algInst* to predict the consumption based on a given temperature and wind.
+4. Use *algInst* to predict the power consumption based on the given temperature and wind.
 
 To solve this problem with the **LearningAPI** the following pseudo can be used:
 
 ```
 var api = new LearningApi(config)
-api.UseCsvReaderModeule('csvFileName.csv')
+api.UseCsvDataProvider('csvFileName.csv')
 api.UseNormilizerModule();
 api.Train();
 // Prediction
 var predictedPower = api.Predict(108W, 45 wind force);
 ```
-
-// provide here a real example.
-
 One pipeline module is defined as implementation of interface IPipeline.
 
 The IPipeline Interface is defined as follows:
@@ -72,36 +71,22 @@ The IPipeline Interface is defined as follows:
  }
 ```
 
-With this definition the developer can run the implementation if the module with the following code:
+With this definition the developer can run the implementation of the module with the following code:
 
 ```csharp
-	
+using LearningFoundation;
+public interface IAlgorithm : IPipelineModule<double[][], IScore>, IPipelineModule
+{
+	IScore Train(double[][] data, IContext ctx)
+  	IResult Predict(double[][] data, IContext ctx)
+}
 ```
+-------------------------------
+// 
+An example is explained in the section <a href="#Example_Custom_Algorithm">'PLease refer this section to understand 'How to build a LearningAPI algorithm?'</a>
 
-<!--![Image 2](https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png)-->
+-------------------------------
 
-<img src="https://user-images.githubusercontent.com/44580961/98464406-fb64ee80-21c2-11eb-9dc1-3fcb08e1d0fc.png" width="700" height="200" />
-
-An example code is shown in the Fig. 3 : 
-
-<!--![Image 3](https://user-images.githubusercontent.com/44580961/98464411-01f36600-21c3-11eb-877f-3c3a3815b1c0.png)-->
-
-<img src="https://user-images.githubusercontent.com/44580961/98464411-01f36600-21c3-11eb-877f-3c3a3815b1c0.png" width="700" height="300" />
-
-LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. One pipeline module is defined as implementation of interface IPipeline. 
-
-The structure for IPipeline Interface: 
-```markdown
- public interface IPipelineModule
-    {
-
-    }
-
- public interface IPipelineModule<TIN, TOUT> : IPipelineModule
-    {
-        TOUT Run(TIN data, IContext ctx);
-    }
-```
 
 # The LearningApi Concept <a id="LearningApi_Concept"></a>
 
@@ -133,7 +118,18 @@ To find out more details, click on [Information..](https://docs.microsoft.com/en
   
 **The Pipeline module** receives an input TIN and context information. Usually TIN is set of data, which results as output of th eprevious module. Typically, first module in the pipeline is responsibe to provide learning data and last module in the pipeline is usually algorithm.
 
-Following example illustrates how to setup the learning pipeline:
+# What is a pipeline Module? <a id="What_is_Module"></a>
+
+A module in Machine Learning represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
+Both algorithms and modules are independent of each other. 
+
+While implementing an algorithm, it is initially trained using various number of data available already to make the algorithm learn how to predict the results for an unknown input in the later stages. Thus the set of data is very important. This data is supposed to be clean with all details. Sometimes in algorithms when we don't get clean data, pipeline modules are used for pre-processing of the data. 
+
+For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the larger algorithms.
+
+In the above example,
+
+Following example illustrates how to setup the learning pipeline for Data Descriptor:
 
 ```csharp
 public void SimpleSequenceTest()
@@ -204,13 +200,14 @@ public void SimpleSequenceTest()
 The code shown above setups the pipeline of two modules. 
 
 1.First one is so called action module, which defines the custom code to be executed. 
+```csharp
+api.UseActionModule<object, double[][]>((notUsed, ctx)
 
-2.Second module is setup by the following line of code:
+2.Second module injects the perceptron algorithm in the pipeline and it is setup by the following line of code:
 
 ```csharp
 api.UsePerceptron(0.02, 10000);
 ```
-It injects the perceptron algorithm in the pipeline.
 
 Execution of the pipeline is started with following line of code:
 
@@ -218,8 +215,8 @@ Execution of the pipeline is started with following line of code:
 IScore score = api.Run() as IScore;
 ```
 
-When the pipeline starts, modules are executed in the sequenceordered as they are added to the pipeline. 
-In this case, first action module will be executed and then perceptron algorithm. After running of the pipeline model is trained. Next common step in Machine Learning applications is called evaluation of the model. Following code in previous example shows how to evaluation (predict) the model:
+When the pipeline starts, modules are executed in the sequence ordered as they are added to the pipeline. 
+In this case, first action module will be executed and then perceptron algorithm. After running of the pipeline, model is trained. Next common step in Machine Learning applications is called evaluation of the model. Following code in previous example shows how to evaluate (predict) the model:
 
 ```csharp
 double[][] testData = new double[4][];
@@ -242,17 +239,143 @@ Machine learning is a class of methods for automatically creating models from da
 
 An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
 
-# How to build the custom algorithm? <a id="Example_Custom_Algorithm"></a>
+# How to build the custom algorithm using LearningAPI? <a id="Example_Custom_Algorithm"></a>
 
-  The below solution demonstrates how to implement a custom algorithm. In this example, the SUM and AVERAGE logics will be impemented.
-  
-  This example is only for reference on steps to implement a solution using LearningApi. 
+  The below solution demonstrates how to implement a Linear Regression algorithm using LearningAPI. To understand the implementation, you should initially understand the linear Regression concept. 
 	
 ## LearningApi Example Algorithm <a id="#Example_Algoirthm"></a>
 
-Prediction of 'Chance of Precipitation' by calculating the average of temperature data and the average of chance of precipitation till date given. Motive is to achieve the solution using LeaningApi framework.
+Lets take a simple example to build a model to predict the HOUSE PRICE. For this, we have 3 phases of tasks to do. 
 
-## Example Solution using LearningApi Algorithm :
+1.Input Phase
+2.Training Phase
+3.Output 
+
+**Input phase :** 
+
+Let's consider 2 simple features 
+	*Size* - Size of the house
+	*Room* - Number of rooms
+	*Price* - Price of the house based on *size* feature
+	
+Now we should train the model with the above 2 features by giving a real data (shown below) in csv file  :
+
+| Size in sq.m | Price | 
+|:--- |:--- |
+| 10 | 510 | 
+| 20 | 1010 | 
+| 30 | 1510 | 
+
+The model reads the csv file with the following code :
+
+```csharp
+ api.UseCsvDataProvider(trainDataPath, ',', false);
+```
+
+**Training phase :** The model reads the data in from csv file and based on the data given, after training the model, the model should be able to predict the result y. 
+
+The linear regression formula for the above situation is **PRICE = 50 * SIZE + 10**. This is similar to **y=mx+c** , 
+where y is the predicted price of the house
+      x is the size of house based on which the price should be predicted
+      m is the weight (w)
+      c is the bias (b)
+      
+Here m and c are weight and bias - Suppose the model has to take a predict the price of the house between many prices. So it will choose one value after analyzing all different options. Analyzing will give some percentage prediction to all the values selected by 'w' on the basis of experience. This percentage is weight in terms of ML. These percentages do not have to be exact always. It might be wrong and it will be confirmed after crossing the values. Whatever will be the value selected by weight accordingly percentages will change , so that next time prediction accuracy will be more as compared to previos predictions.
+
+we use *Mean Square Error* concept here to find out the error differences and help the model to finalise the least error value to be more accurate for the prediction. 
+
+Initially let's initialise the weight and bias (let this be w=2 and b=1). This w and b are used for calculating the prices across all the data of size given :
+**1st data : w=2 and b=1, size 10sq.m**
+	substitute in formula -- y1^ = 2*10 + 1 = 21
+	Square Error -- SE1 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+			= (510 - 21)^2 = 489^2 = **239121**
+			
+**2nd data : w=2 and b=1, size 20**
+	substitute in formula -- y2^ = 2*20 + 1 = 41
+	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+			= (1010 - 41)^2 = 969^2 = **938961**
+
+**2nd data : w=2 and b=1, size 30**
+	substitute in formula -- y2^ = 2*30 + 1 = 61
+	Square Error -- SE2 = (actual price for size 10sq.m - predicted price for size 10sq.m)^2 
+			= (1510 - 61)^2 = 969^2 = **2099601**
+			
+this calculation occurs for all the values of size feature with the initialised w and b values.
+
+Mean square error calculation (MSE1)-- 
+    = (SE1+SE2+SE3)/ 3 
+    = (239121+938961+2099601)/3 
+MSE1 = **1092561**
+
+```csharp
+for (int trainDataIndex = 0; trainDataIndex < numTrainData; trainDataIndex++)
+                {
+                    estimatedOutputLabels[trainDataIndex] = ComputeOutput(inputFeatures[trainDataIndex], weights, bias);
+                    squareErrors[trainDataIndex] = ComputeSquareError(actualOutputLabels[trainDataIndex], estimatedOutputLabels[trainDataIndex]);
+                }
+
+                double meanSquareError = squareErrors.Sum() / numTrainData;
+
+                loss[epoch] = meanSquareError;
+```
+
+Likewise this will continue with other weights and biases. New weights and biases will be calculated by 
+- finding the least w and b values by Gradient Descent concept
+- finding Slopes of w and b 
+- setting up the Leanring rate (LR)
+
+Hence new w and new b values would be :
+
+	W(new) = W(old) - (slope derivative of w * LR)
+	
+	b(new) = b(old) - (slope derivative of b * LR)
+
+```csharp
+Tuple<double[], double> hyperParameters = GradientDescent(actualOutputLabels, estimatedOutputLabels, inputFeatures, numTrainData, numFeatures);
+
+                // Partial derivatives of loss with respect to weights
+                double[] dWeights = hyperParameters.Item1;
+
+                // Updating weights
+                for (int featureIndex = 0; featureIndex < numFeatures; featureIndex++)
+                {
+                    weights[featureIndex] = weights[featureIndex] - m_LearningRate * dWeights[featureIndex];
+                }
+
+                // Partial derivative of loss with respect to bias
+                double dbias = hyperParameters.Item2;
+
+                // Updating bias
+                bias = bias - m_LearningRate * dbias;
+            }
+```
+
+Likewise the model will do these calculations by assuming several weights and biases.
+
+So, the process from initialising of w and b till finding the W(new) and b(new) values is called 1 epoch. Let's initialise number of epochs for training out model. 
+
+The following lines of code initialises LR and epochs at the starting of the program - 
+
+```csharp
+	private double m_LearningRate;
+        private int m_Epochs;
+
+        public LinearRegression(double learningRate, int epochs)
+        {
+            m_LearningRate = learningRate;
+            m_Epochs = epochs;
+        }
+```
+
+Now in 1st epoch, MSE1 is 1092561, likewise after 20 epochs, MSE20 would be (lets assume) some 0.001. Therefore the mean square error is completely reduced which means the error is less and the W and B value of this least MSE is the right value for the final formula. 
+
+Assume, for the correct epoch (20th epoch), model has taken the values of W=50.09 and B=9.96 (near to the value W=50 nad B=10 as shown in the initial forula of the logic).
+
+	PRICE = 50.09 * SIZE + 9.96
+	
+**Output Phase :** Now, the model has an exact formula (found out as the output of training). This formula will be used by the model to predict price of the house with any further sizes of the house. 
+
+## Implementation of LearningApi for the above example Algorithm :
 
 ### Step 1: Create a solution 
 
@@ -270,75 +393,168 @@ Use the selectors on the left side to choose the different types of programming 
 
 Fig. 4 : New Project
 
-For our example - given the project name as **“HelloLearningApiAlgorithm”**	
+For our example - given the project name as **“HelloLearningApiExampleAlgorithm”**	
 
     Name the project --> Solution Name --> Specify the location --> Click OK/CREATE
     
-<!--![Image 5](https://user-images.githubusercontent.com/44580961/98464418-0ae43780-21c3-11eb-9d19-9c08e951e4e9.png) -->
+<!--![Image 5]() -->
 
-<img src="https://user-images.githubusercontent.com/44580961/98464418-0ae43780-21c3-11eb-9d19-9c08e951e4e9.png" width="600" height="450" />
+<img src="" width="600" height="450" />
 
 Fig. 5 : Project and Solution name
 
-Now the project is created with the name _'HelloLearningApiAlgorithm.sln'_
+Now the project is created with the name _'HelloLearningApiExampleAlgorithm.sln'_
   
 <!--![Image 6](https://user-images.githubusercontent.com/44580961/98464421-0ddf2800-21c3-11eb-9951-f66298e25891.png) -->
 
-<img src="https://user-images.githubusercontent.com/44580961/98464421-0ddf2800-21c3-11eb-9951-f66298e25891.png" width="550" height="300" />
+<img src="()" width="550" height="300" />
 
 Fig. 6 : Creation of Solution	
 	
 ### Step 2: Create the class library for the algorithm 
 	
-When solution(HelloLearningApiAlgorithm.sln) is created, by default a class library is also created automatically (.cs file).
+When solution(HelloLearningApiExampleAlgorithm.sln) is created, by default a class library is also created automatically (.cs file).
 
-We have to change the names accordingly. Here for example, change the class library name as “LearningApiAlgorithm.cs” as shown in Fig. 6.
+We have to change the names accordingly. Here for example, change the class library name as “ExampleLearningApiAlgorithm.cs” as shown in Fig. 6.
 
-LearningApiAlgorithm.cs serves as the main class folder for the algorithm.
+ExampleLearningApiAlgorithm.cs serves as the main class folder for the algorithm.
 
-![Image 7](https://user-images.githubusercontent.com/44580961/98464425-16cff980-21c3-11eb-92ca-26aee694db54.png) 
+![Image 7]() 
 
 Fig. 7 : The project and class library folder structure
-	
-### Step 3 : Add NuGet Package 'LearningApi' to our project 
 
-We should add NuGet package called _LearningApi_ to our project by following the steps below, 
+### Step 3: Create the Test folder and Test class library for the algorithm 
+
+We should create a Test folder where we can initiate the program and command the directions. 
+
+	Select the project folder --> Right click --> Add --> New Project
+
+![Image 8]() 
+
+Select the Test file 'MSTest project c#' and click on NEXT button as shown in the below Fig. 9.
+
+![Image 9]() 
+
+Name the project name as **HelloLearningApiExampleAlgorithmTest** and click on NEXT button. 
+
+![Image 10]() 
+
+Test project is created under the main solution and rename the class file as HelloLearningApiExampleAlgorithmTest1 as shown in the below Fig. 11.
+
+![Image 11]() 
+
+
+### Step 3 : Add NuGet Package 'LearningApi' to both projects 
+
+We should add NuGet package called _LearningApi_ to both project by following the steps below, 
 
 		
-	Right click on project (HelloWorldTutorial.sln) --> Click on ‘Manage NuGet packages..’ (Fig. 8)	
+	Right click on project (HelloLearningApiExampleAlgorithm/HelloLearningApiExampleAlgorithmTest) --> Click on ‘Manage NuGet packages..’ (Fig. 12)	
 
-	in the pop up window --> Click on BROWSE, (Fig. 9)
+	in the pop up window --> Click on BROWSE, (Fig. 13)
 	
-	search for LearningApi and select --> Select the checkbox of LearningApi nuget --> Click on SELECT/ADD PACKAGE button (Fig. 10)
+	search for LearningApi and select --> Select the checkbox of LearningApi nuget --> Click on SELECT/ADD PACKAGE button (Fig. 14)
 
 	
-<!--![Image 8](https://user-images.githubusercontent.com/44580961/98464428-1a638080-21c3-11eb-9789-9788f5e01a95.png)-->
+<!--![Image 12]()-->
 
-<img src="https://user-images.githubusercontent.com/44580961/98464428-1a638080-21c3-11eb-9789-9788f5e01a95.png" width="400" height="550" />
+<img src="" width="400" height="550" />
 
-Fig. 8 : NuGet package integration step1,
+Fig. 12 : NuGet package integration step1,
 
-<!--![Image 9](https://user-images.githubusercontent.com/44580961/98464429-1df70780-21c3-11eb-9e40-7393ae09c9b8.png)-->
+In the pop up, search for the package LearningAPI , select the latest version and click on ADD PACKAGE button.
 
-<img src="https://user-images.githubusercontent.com/44580961/98464429-1df70780-21c3-11eb-9e40-7393ae09c9b8.png" width="600" height="450" />
+<!--![Image 13]()-->
 
-Fig. 9 : NuGet package integration step2,  
+<img src="" width="600" height="450" />
 
-<!--![Image 10](https://user-images.githubusercontent.com/44580961/98464431-218a8e80-21c3-11eb-8329-be2fe49b26e3.png)-->
+Fig. 13 : NuGet package integration step2,  
 
-<img src="https://user-images.githubusercontent.com/44580961/98464431-218a8e80-21c3-11eb-8329-be2fe49b26e3.png" width="600" height="450" />
+A pop up with the packages installed along with the LearningApi NuGet package is displayed. Click on OK/Accept button.
 
-Fig. 10 : NuGet package integration step3
-  
-A pop up with the packages installed along with the LearningApi NuGet package is displayed. Click on OK button.
+### Step 4 : Start the Code for the project and test .cs files  <a href="#Example_Algoirthm">LearningApi Example Algorithm</a>
 
-### Step 4 : Start the Code for the project <a href="#Example_Algoirthm">LearningApi Example Algorithm</a>
+**In Test.cs file** , we direct the model to read the csv file and take the data for training of the model. We also provide data mapper to extract the data from the columns with the following code :
 
-Open the class *‘LearningApiAlgorithm.cs’* and implement the *IAlgorithm* in the code which is taken from LearningApi NuGet package. *IAlgorithm*  is in the library and it has a separate structure which we have to use in the project as we already have discussed in the section <a href="#LearningApi_Concept">LearningApi Concept</a>. 
+```csharp
+api.UseCsvDataProvider(trainDataPath, ',', false);
+api.UseDefaultDataMapper();
+```
+csv data file path is recognised by the line of code :
 
-![Image 11](https://user-images.githubusercontent.com/44580961/98464507-ad041f80-21c3-11eb-8ad0-4f8403371402.png)
+```csharp
+string testDataPathString = @"SampleData\house_price_train.csv";
+```
+load the meta data (where the features are explained) by the following bit of code:
 
-Fig. 11 : IAlgorithm interface integrated the project
+```csharp
+private DataDescriptor LoadMetaData()
+        {
+            var des = new DataDescriptor();
+
+            des.Features = new Column[3];
+            des.Features[0] = new Column { Id = 1, Name = "size", Index = 0, Type = ColumnType.NUMERIC, DefaultMissingValue = 0, Values = null };
+            des.Features[1] = new Column { Id = 2, Name = "rooms", Index = 1, Type = ColumnType.NUMERIC, DefaultMissingValue = 0, Values = null };
+            des.Features[2] = new Column { Id = 3, Name = "price", Index = 2, Type = ColumnType.NUMERIC, DefaultMissingValue = 0, Values = null };
+
+            des.LabelIndex = 2;
+            return des;
+        }
+```
+
+**In Algorithm.cs file** , we implement the *IAlgorithm* in the code which is taken from LearningApi NuGet package. *IAlgorithm*  is in the library and it has a separate structure which we have to use in the project as we already have discussed in the section <a href="#LearningApi_Concept">LearningApi Concept</a>. 
+
+![Image 14]()
+
+Fig. 14 : IAlgorithm interface integrated in the project
+
+Here, In _'IScore Run'_ we direct the model to TRAIN interface where the logic for algorithm is defined. 
+
+The following code is used for training the model :
+
+```csharp
+for (int epoch = 0; epoch < m_Epochs; epoch++)
+            {
+                for (int trainDataIndex = 0; trainDataIndex < numTrainData; trainDataIndex++)
+                {
+                    estimatedOutputLabels[trainDataIndex] = ComputeOutput(inputFeatures[trainDataIndex], weights, bias);
+                    squareErrors[trainDataIndex] = ComputeSquareError(actualOutputLabels[trainDataIndex], estimatedOutputLabels[trainDataIndex]);
+                }
+
+                double meanSquareError = squareErrors.Sum() / numTrainData;
+
+                loss[epoch] = meanSquareError;
+                
+                Tuple<double[], double> hyperParameters = GradientDescent(actualOutputLabels, estimatedOutputLabels, inputFeatures, numTrainData, numFeatures);
+
+                // Partial derivatives of loss with respect to weights
+                double[] dWeights = hyperParameters.Item1;
+
+                // Updating weights
+                for (int featureIndex = 0; featureIndex < numFeatures; featureIndex++)
+                {
+                    weights[featureIndex] = weights[featureIndex] - m_LearningRate * dWeights[featureIndex];
+                }
+
+                // Partial derivative of loss with respect to bias
+                double dbias = hyperParameters.Item2;
+
+                // Updating bias
+                bias = bias - m_LearningRate * dbias;
+            }
+
+            if (ctx.Score as LinearRegressionScore == null)
+                ctx.Score = new LinearRegressionScore();
+
+            LinearRegressionScore scr = ctx.Score as LinearRegressionScore;
+            scr.Weights = weights;
+            scr.Bias = bias;
+            scr.Loss = loss;            
+
+            return ctx.Score;
+
+```
+In PREDICT interface, all the logics for computing mean square error, outputlabels are provided. 
 
 ### Step 5 : Create the *Extension.cs* , *Result.cs* and *Score.cs* files
 
@@ -346,35 +562,50 @@ Extension file in a project facilitates other users to utilise our project code 
       
       Right Click on Project name --> Add --> New Class (Fig. 12_left side)
       
-      Select Empty class --> Give the class name --> Click on NEW button (Fig. right side)
+      Select Empty class --> Give the class name ExampleLearningApiAlgorithmExtension --> Click on NEW button (Fig. right side)
 
-![Image 12](https://user-images.githubusercontent.com/44580961/98464510-b3929700-21c3-11eb-8fe0-3df830c1f65f.png)
+![Image 15]()
 
-Fig. 12 : Adding new class 
+Fig. 15 : Adding Extension class to ALgorithm project 
 
-Likewise, in the example solution, the *LearningApiAlgorithmResult.cs* and *LearningApiAlgorithmScore.cs* files should be created to define the values which should be storing the result and trained score data. Follow the steps explained above in Fig.12 to create these classes also.
+The following is given as code for extension.cs file in order to use it anywhere in the project further:
 
-In the example solution, these 3 classes are created to demonstarte the structure of the complete solution as shown in Fig. 13.
+```csharp
+public static LearningApi UseExampleLearningApiAlgorithm(this LearningApi api, double learningRate, int epochs)
 
-<!--![Image 13](https://user-images.githubusercontent.com/44580961/98464512-b68d8780-21c3-11eb-816f-9a5015f14b43.png)-->
+        {
+            var alg = new ExampleLearningApiAlgorithm(learningRate, epochs);
+            api.AddModule(alg, "Linear Regression");
+            return api;
+        }
+```
 
-<img src="https://user-images.githubusercontent.com/44580961/98464512-b68d8780-21c3-11eb-816f-9a5015f14b43.png" width="550" height="300" />
+Likewise, in the example solution, the *ExampleLearningApiAlgorithmResult.cs* and *LearningApiAlgorithmScore.cs* files should be created to define the values which should be storing the result and trained score data. Follow the steps explained above in Fig.12 to create these classes also.
 
-Fig. 13 : Complete solution model
+The values are get and set in the _Result.cs_ file with the following code line :
 
-### Step 6 : Coding part for the example algorithm.   
+```csharp
+public class ExampleLearningApiAlgorithmResult : IResult
+    {
+        public double[] PredictedValues { get; set; }
+    }
+```
+The values for the features are get and set in the _Score.cs_ file with the following lines of code :
 
-We give the main algorithm in the _LearningApiAlgorithm.cs_ file under TRAIN module as shown below,
+```csharp
+public class LinearRegressionScore : IScore
+    {
+        public double[] Weights { get; set; }
 
-<!--![Image 14](https://user-images.githubusercontent.com/44580961/98464513-b8574b00-21c3-11eb-8f82-3d9ac614c908.png)-->
+        public double Bias { get; set; }
 
-<img src="https://user-images.githubusercontent.com/44580961/98464513-b8574b00-21c3-11eb-8f82-3d9ac614c908.png" width="500" height="400" />
-
-Fig. 14 : Learning API Algorithm code implementation
+        public double[] Loss { get; set; }
+    }
+ ```
 
 ### Step 7 : Result 
 
-According to the algorithm, the set of data of temperature is given and taken the average of the temperature. The data for chance of precipitation is taken an average. The ratio of average of temperature and average of chance of precipitation is given to be our score. When this score is multiplied with each data given, we get the precipitation value predicted.
+According to the algorithm, the set of data of house details is given and trained the model with these data. The data for house price is used to calculate the mean square error and When this score is multiplied with each data given, we get the house price value predicted.
 
 ![Image 15]()
 
@@ -383,14 +614,7 @@ Fig. 15 : Result is shown here
 You can refer this example project in the [Example algorithm project in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/se-dystsys-2018-2019-softwareengineering/tree/Anusha_Ashok_Reddy/My%20work/My%20Project)
 
 -------------------------------------------------------------------------------------------------------------
-# What is Module? <a id="What_is_Module"></a>
-
-A module in Machine Learning represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
-Both algorithms and modules are independent of each other. 
-
-While implementing an algorithm, it is initially trained using various number of data available already to make the algorithm learn how to predict the results for an unknown input in the later stages. Thus the set of data is very important. This data is supposed to be clean with all details. Sometimes in algorithms when we don't get clean data, pipeline modules are used for pre-processing of the data. 
-
-For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the larger algorithms. 
+ 
 
 # How to build the custom module? <a id="Example_Custom_Module"></a>
 
