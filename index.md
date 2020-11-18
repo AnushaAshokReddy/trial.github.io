@@ -83,7 +83,7 @@ public interface IAlgorithm : IPipelineModule<double[][], IScore>, IPipelineModu
 
 
 An example is explained in the below section -
-<a href="#Example_Custom_Algorithm">'PLease refer this section to understand 'How to build a LearningAPI algorithm?'</a>
+<a href="#Example_Custom_Algorithm">'Please click here to understand 'How to build a LearningAPI algorithm?'</a>
 
 -------------------------------
 
@@ -273,17 +273,19 @@ An algorithm is a set of logical coding which is trained with lots and lots of d
 
 # How to build the custom algorithm using LearningAPI? <a id="Example_Custom_Algorithm"></a>
 
-  The below solution demonstrates how to implement a Linear Regression algorithm using LearningAPI. To understand the implementation, you should initially understand the linear Regression concept. 
+  The below solution demonstrates how to implement a Linear Regression algorithm for a simple model to predict House price using LearningAPI. To understand the implementation, you should initially understand the linear Regression concept. 
 	
+Simple linear regression is a statistical method that allows us to summarize and study relationships between two continuous and quantitative variables. And in this one variable will be assigned for prediction based on the changes and variations in the other variables.
+
 ## LearningApi Example Algorithm <a id="#Example_Algoirthm"></a>
 
 Lets take a simple example to build a model to predict the HOUSE PRICE. For this, we have 3 phases of tasks to do. 
 
-1. Input Phase
+1. Loading data phase
 2. Training Phase
-3. Output 
+3. Prediction Phase 
 
-**Input phase :** 
+**Loading data phase :** 
 
 Let's consider 2 simple features (features are the inputs)
 	
@@ -291,11 +293,22 @@ Let's consider 2 simple features (features are the inputs)
 	
 	*Room* - Number of rooms
 	
-and 1 label (the output features is called label)
+and 1 label (the output feature is called label)
 
 	*Price* - Price of the house based on *room* feature
+
+Each features is given with a index number defined in DataDescriptor as shown in the following line of code :
+```csharp
+	des.Features[0] = new Column { Id = 1, Name = "size", Index = 0, Type = ColumnType.NUMERIC, DefaultMissingValue = 0, Values = null };
+        des.Features[1] = new Column { Id = 2, Name = "rooms", Index = 1, Type = ColumnType.NUMERIC, DefaultMissingValue = 0, Values = null };
+        des.Features[2] = new Column { Id = 3, Name = "price", Index = 2, Type = ColumnType.NUMERIC, DefaultMissingValue = 0, Values = null };
+```
 	
-Now we should train the model with the above 2 features and a label by giving a real data (shown below) in csv file, we have taken the normalised data  :
+Now we should train the model with the above 2 features and a label by giving a real data (shown below) in csv file, we have taken the pre processed data :
+
+Ex. Size data is taken as 1 instead of 10 sq.m.
+    Room data is taken as it is.
+    Price data is taken as 6 instead of 600 euros.
 
 | Size | Room | Price | 
 |:--- |:--- |:--- |
@@ -315,9 +328,9 @@ The model reads the csv file with the following interface :
 ```csharp
  api.UseCsvDataProvider(trainDataPath, ',', false);
 ```
-we should provide the meta data and label index for our csv file in the datadescriptor. Meta data is the declaration of columns in csv file and label index is the index number of feature based on whihc the prediction should be made. 
+we should provide the meta data and label index for our csv file in the datadescriptor. Meta data is the declaration of columns in csv file and label index is the index number of feature based on which the prediction should be made. 
 
-The following is the code snippet for the datadescriptor :
+The following is the code snippet for the data descriptor :
 
 ```csharp
  private DataDescriptor LoadMetaData()
@@ -331,54 +344,62 @@ The following is the code snippet for the datadescriptor :
         }
 ```
 
-**Training phase :** The model reads the data in from csv file and based on the data given, after training the model, the model should be able to predict the result y. 
+**Training phase :** The model reads the data from _csv_ file and based on the data given, after training the model, the model should be able to predict the result y. 
 
-The linear regression formula for the above situation is **PRICE = 3 * SIZE + 2 * ROOM + 1 **
+The linear regression representation for the above situation corresponds to **PRICE = 3 * SIZE + 2 * ROOM + 1** which is in the form of linear equation
+**y = w1 x1 + w2 x2 + b** , 
 
-This is similar to **y = m1 x1 + m2 x2 + c** , 
+where 
 
-where y is the predicted price of the house
+      y is the predicted price of the house
 
       x1 is the Size of house based on which the price should be predicted
       
       x2 is the Room 
       
-      m1/3 is the weight (w1) for feature PRICE and m2/2 i the weight (w2) for feature ROOM
+      w1 or 3 is the weight (w1) for feature PRICE and 
       
-      c/1 is the bias (b)
+      w2 or 2 is the weight (w2) for feature ROOM
       
-Here m and c are weight and bias - Suppose the model has to take a predict the price of the house between many prices. So it will choose one value after analyzing all different options. Analyzing will give some percentage prediction to all the values selected by 'w' on the basis of experience. This percentage is weight in terms of ML. These percentages do not have to be exact always. It might be wrong and it will be confirmed after crossing the values. Whatever will be the value selected by weight accordingly percentages will change , so that next time prediction accuracy will be more as compared to previos predictions.
+      b or 1 is the bias 
+      
+Here w and b are weight and bias -  
 
-we use *Mean Square Error* concept here to find out the error differences and help the model to finalise the least error value to be more accurate for the prediction. 
+Suppose the model has to predict the price of house , So it will start guessing the values of w and b , based on these values , it predicts the price (y), we compare this predicted price with the original data value and give the error. Error is found for each data set in the csv file. 
 
-Initially let's initialise the weight and bias (let this be w1=2 , w2=2 and b=1). This w and b are used for calculating the prices across all the data of size given :
+we use *Mean Square Error* concept here to find out the error differences and help the model to finalise the least error value to be more accurate for the prediction. For each data set MSE is calculated.
 
-**1st data : w1=2 , w2=2 and b=1, size 10sq.m**
+Initially let's initialise the weight and bias (let this be w1=0 , w2=0 and b=0). This w and b are used for calculating the prices across all the data of size given :
 
-	substitute in formula -- y1^ = 2*1 + 2*1 + 1 = 5
+**1st data : w1=0 , w2=0 and b=1, size 10sq.m**
+
+	substitute these values in formula --   y = (w1 * x1) + (w2 * x2) + b
+					      y1^ = (0*1) + (0*1) + 1 = 1
 	
 	Square Error -- SE1 = (actual price for size 1 - predicted price for size 1)^2 
 	
-			= (6 - 5)^2 = 1^2 = 1
+			SE1 = (6 - 1)^2 = 5^2 = 25
 			
 **2nd data : w=2 and b=1, size 20**
 
-	substitute in formula -- y1^ = 2*1 + 2*2 + 1 = 7
+	substitute these values in formula --   y = (w1 * x1) + (w2 * x2) + b
+					      y1^ = (0*1) + (0*2) + 1 = 1
 	
 	Square Error -- SE2 = (actual price for size 1 - predicted price for size 1)^2 
 	
-			= (8 - 7)^2 = 1^2 = 1
+			SE2 = (8 - 1)^2 = 7^2 = 49
 			
-this calculation occurs for all the values of size and room features with the initialised w and b values.
+The above calculation occurs for all the values of size and room data sets with the initialised w and b values.
 
 Mean square error calculation (MSE1)-- 
 
-    	     = (SE1+SE2+....)/ 10
+    	     = (SE1+SE2+....)/ (Total number of data)
     
-    	     = (1+1*....)/10
+    	     = (25 + 49 +....)/10
     
 	MSE1 = x
 
+The following code snippet shows the calculating logic in the program :
 ```csharp
 for (int trainDataIndex = 0; trainDataIndex < numTrainData; trainDataIndex++)
                 {
@@ -391,18 +412,25 @@ for (int trainDataIndex = 0; trainDataIndex < numTrainData; trainDataIndex++)
                 loss[epoch] = meanSquareError;
 ```
 
-Likewise this will continue with other weights and biases. New weights and biases will be calculated by 
+Likewise this will continue with other weights and biases which are assumed as explained below. 
+
+After calculating the MSE , we should minimize this error or loss by *Gradient Descent* method. 
+ 
+**W and b values updation**
+
+New weights and biases will be calculated by 
+
 - finding the least w and b values by Gradient Descent concept
-- finding Slopes of w and b 
+- We calculate partial derivative of loss with respect to w (dw) and partial derivative of loss with respect to b (db)
 - setting up the Leanring rate (LR)
 
 Hence new w and new b values would be :
 
-	W1(new) = W1(old) - (slope derivative of w1 * LR)
+	w1(new) = w1(old) - (d(w1) * LR)
 	
-	W2(new) = W2(old) - (slope derivative of w2 * LR)
+	w2(new) = w2(old) - (d(w2) * LR)
 	
-	b(new) = b(old) - (slope derivative of b * LR)
+	b(new) = b(old) - (d(b) * LR)
 
 ```csharp
 Tuple<double[], double> hyperParameters = GradientDescent(actualOutputLabels, estimatedOutputLabels, inputFeatures, numTrainData, numFeatures);
@@ -426,7 +454,9 @@ Tuple<double[], double> hyperParameters = GradientDescent(actualOutputLabels, es
 
 Likewise the model will do these calculations by assuming several weights and biases.
 
-So, the process from initialising of w and b till finding the W(new) and b(new) values is called 1 epoch. Let's initialise number of epochs for training out model. 
+So, the process from initialising of w and b till finding the W(new) and b(new) values is called 1 epoch. 
+
+In the coding, we initialise the number of epochs and Learning Rate for training the model. 
 
 The following lines of code initialises LR and epochs at the starting of the program - 
 
@@ -441,13 +471,13 @@ The following lines of code initialises LR and epochs at the starting of the pro
         }
 ```
 
-Now in 1st epoch, MSE1 is some x value, likewise after 1000 epochs, MSE20 would be (lets assume) some 0.001. Therefore the mean square error is completely reduced which means the error is less and the W and B value of this least MSE is the right value for the final formula. 
+Now in 1st epoch, MSE1 is some x value, likewise after 1000 epochs, MSE1000 would be (lets assume) some 0.001. Therefore the mean square error is completely reduced which means the error is less and the w1, w2 and b values of this least MSE is the right value for the final prediction. 
 
-Assume, for the correct epoch (1000th epoch), model has taken the values of W1=2.98, W2=2.02 and B=1.02 (near to the value W1=3, W2=2 and B=1 as shown in the initial forula of the logic).
+Assume, for the correct epoch (1000th epoch), model has taken the values of W1=2.98, W2=2.02 and B=1.02 (near to the value W1=3, W2=2 and B=1 as shown in the initial equation of the logic).
 
 	PRICE = 2.98 * SIZE + 2.02 * ROOM + 1.02
 	
-**Output Phase :** Now, the model has an exact formula (found out as the output of training). This formula will be used by the model to predict price of the house with any further sizes of the house. 
+**Prediction Phase :** Now, the model has an exact equation (found out as the output of training).  In the last epoch, the hyper parameters values will be used for prediction. This formula will be used by the model to predict price of the house with any further sizes and room combinations of the house.
 
 ## Implementation of LearningApi for the above example Algorithm :
 
