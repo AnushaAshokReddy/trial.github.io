@@ -21,19 +21,20 @@
 
 # LearningApi Introduction <a id="LearningApi_Introduction"></a>
 
-Learning API is a Machine Learning Foundation of a set of ML algorithms implemented in .NET Core/C#. It provides a unique pipeline processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with daenet GmbH and Frankfurt University of Applied Sciences.
+_LearningApi_ is a Machine Learning Foundation of a set of ML algorithms implemented in .NET Core/C#. It provides a unique pipeline processing API for Machine Learning solutions. Because it is implemented fully in .NET, developers do not have to bridge .NET and Python or other popular ML frameworks. It has been developed in cooperation with daenet GmbH and Frankfurt University of Applied Sciences.
 
-![Image 1](https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png)
+<!--
+![Image 1](https://user-images.githubusercontent.com/44580961/98464210-a5dc1200-21c1-11eb-95ef-e1a0d7942382.png)--> 
 
-Fig. 1 : daenet GmbH and Frankfurt University of Applied Sciences
+<!-- Fig. 1 : daenet GmbH and Frankfurt University of Applied Sciences --> 
 
 LearningAPI already has interfaces that are pre declared which we can easily access, understand and use in our project.
 
-Before you start with the **LearningAPI**, you should get familiarised with several interfaces: IPipeline Module, IAlgorithm, IScore, IResult. These interfaces are shared across all algorithms inside of the **LearningAPI**.
+Before you start with the *LearningAPI*, you should get familiar with several interfaces: IPipeline Module, IAlgorithm, IScore, IResult. These interfaces are shared across all algorithms inside of the *LearningAPI*.
 
 LearningAPI is a foundation of Machine Learning algorithms, which can run in the pipeline of modules compatible to each other. This concept allows using of conceptually different algorithms in the same API, which consists of a chain of modules. Typically in Machine Learning applications, developers need to combine multiple algorithms or tasks to achieve a final task or result.
 
-For example, imagine you want to train a supervised algorithm from historical power consumption data to be able to predict the power consumtion. The training data is contained in the CSV file, which contains features like power consumtion in W, outside temperature, the wind etc. To solve the problem, you first have to read the data from CSV, then to normalize features (ref to normalization todo) and then to train the algorithm.
+For example, imagine you want to train a supervised algorithm from historical power consumption data to be able to predict the power consumtion. The training data is stored in a csv file which can be read into the program for training the model. This csv file needs to be described in DataDescriptor interface. It contains features like outside temperature, the wind and power consumtion (where power consumption is the output prediction value which is called as label). To solve the problem, you first have to read the data from CSV, then to normalize features and then to train the algorithm.
 
 You could think about these tasks as follows:
 
@@ -45,7 +46,7 @@ After the above process, you will have a trained instance of the algorithm *algI
 
 4. Use *algInst* to predict the power consumption based on the given temperature and wind.
 
-To solve this problem with the **LearningAPI** the following pseudo can be used:
+To solve this problem with the *LearningAPI* the following pseudo can be used:
 
 ```
 var api = new LearningApi(config)
@@ -55,7 +56,8 @@ api.Train();
 // Prediction
 var predictedPower = api.Predict(108W, 45 wind force);
 ```
-One pipeline module is defined as implementation of interface IPipeline.
+
+We can implement the solution for the above discussed model using _pipeline_ method. A pipeline is defined as the list of pipeline modules. One pipeline module is defined as implementation of interface _IPipeline_.
 
 The IPipeline Interface is defined as follows:
 
@@ -79,10 +81,20 @@ public interface IAlgorithm : IPipelineModule<double[][], IScore>, IPipelineModu
   	IResult Predict(double[][] data, IContext ctx)
 }
 ```
+
+To define the pipline of modules you woudld typically do describe the following modules differnetly in the same file and call them wherever needed to do the respective functions:
+
+api.UseDataProviderModule(“DataProvider”, DataProviderModule)
+api.UseDataNormalizerModule(“DataNormalizer”, DataNormalizerModule);
+ 
+To make the code more readable, developers of modules typically provide helper extension methods using the following ,	
+ 
+api.UseDataProvider(args1)
+api.UseDataNormalizer(args2);
+
 -------------------------------
 
-
-An example is explained in the below section -
+A real time example model is explained in the below section -
 <a href="#Example_Custom_Algorithm">'Please click here to understand 'How to build a LearningAPI algorithm?'</a>
 
 -------------------------------
@@ -115,7 +127,7 @@ All the supported Modules and Algorithms are listed in an excel sheet. Also, the
 | Modules | LearningApi Repository | .md file available | Documentation available? |
 |:--- |:--- |:--- |:--- |
 | Image binarizer Latest | [Github_ImageBinarizer Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizerLatest) |  Available | [Github_ImageBinarizer Documentation](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizerLatest/Documentation) |
-| Euclidian color filter - Deepali | [Github_EuclidianColorFilter Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/EuclideanColorFilter) | Available | [Github_EuclidianColorFilter Documentation](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/EuclideanColorFilter/Documentation) |
+| Euclidian color filter | [Github_EuclidianColorFilter Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/EuclideanColorFilter) | Available | [Github_EuclidianColorFilter Documentation](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/EuclideanColorFilter/Documentation) |
 | Image Binarizer | [Github_ImageBinarizer Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizer) | Available  | [Github_ImageBinarizer Documentation](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/ImageBinarizer/Documentation) |
 | Center Module | [Github_CenterModule Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/Center%20Module) | Available | [Github_CenterModule Documentation](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/Center%20Module/Documentation) |
 | Canny edge detector | [Github_CannyEdgeDetector Algorithm](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Modules/CannyEdgeDetector) | Available    | Not Available yet |
@@ -129,25 +141,27 @@ LearningAPI is a framework for developing software machine learning applications
   
   Basically a NuGet package is a single ZIP file with the *.nupkg* extension that contains compiled code (DLLs), other files related to that code, and a descriptive manifest that includes information like the package's version number.
   
-  Initially open the class ‘.cs’ and implement the IAlgorithm in the code which is taken from Learning Api NuGet package. IAlgorithm is in the library and it has a separate structure which we have to use in the project. 
+  Initially open the class ‘.cs’ and implement the IAlgorithm in the code which is taken from LearningApi NuGet package. IAlgorithm is in the library and it has a separate structure which we have to use in the project. 
   
 More information can be found on [Click here for more information on NuGet packages..](https://docs.microsoft.com/en-us/visualstudio/mac/nuget-walkthrough?view=vsmac-2019)
 
 <!--To find out more details, click on [Information..](https://docs.microsoft.com/en-us/nuget/what-is-nuget)-->
 
-**IAlgorithm** - The _IAlgorithm_ interface has 2 phases:
-
-1. _**IResult**_ – IResult is used to set and get the final result of the algorithm and store it. We use IResult for the PREDICT phase - This is the final phase where we get the perfect output for the input provided by the user on the basis of the algorithm we give.In this prediction logic should be written as shown in  screenshot 6.
-
-2. _**IScore**_ – Iscore is used to set and get the values of the variables used in the project. We use IScore for RUN and TRAIN methods.
-
-**RUN**/**TRAIN** – This is the training (learning) part where the random data will be given to our system to test whether the correct output is being displayed after the training session. Here, we call TRAIN method internally.
-
-**TRAIN** – Here we will train the system with our specific set of data I.e input and the output as in how to function. Algorithm of the function is written in Train method.
-
   **Inputs** to the TRAIN i.e to the algorithm is the set of data with expected outputs for few number of inputs, we train the system and then expect the predicted value to be accurate when other input is given.
   
   **Output** is the predicted value from PREDICT method which gives the accuracy of the True or False statements.
+  
+  For example, if we take HOUSE PRICE prediction scenario ( <a href="#Model_Explanation">(Click here for model explanation)</a>), the features SIZE, ROOM and PRICE  are the real time _input data_ given to the model to get trained based on these existing data. Whereas , PRICE is the predicted value which is expected to be the output of the model based on the training given to the model. 
+
+**IAlgorithm** - The _IAlgorithm_ interface has 2 phases:
+
+1. _**IResult**_ – IResult is used to set and get the final result of the algorithm and store it. We use IResult interface for the PREDICT phase - This is the final phase where we get the accurate predicted output for the input provided by the user on the basis of the trained model. IResult is returned by PREDICT. 
+
+2. _**IScore**_ – Iscore is used to set and get the values of all the features used in the project (which ar given in csv file/input data). IScore is returned by RUN / TRAIN methods.
+
+**RUN/TRAIN** – This is the training (learning) part where the random/real time data will be given to our system to test whether the correct output is being displayed after the training phase. The description of features, data inputs, logic for learning are defined in this interface. Here we will train the system with our specific set of data i.e input and the output as in how to function/ predict the output with higher accuracy.
+
+**PREDICT** –  This is the prediction part where the model has the trained logic as input and gives the high accuracy prediction for the label we described to be as output. 
   
 **The Pipeline module** receives an input TIN and context information. Usually TIN is set of data, which results as output of th eprevious module. Typically, first module in the pipeline is responsibe to provide learning data and last module in the pipeline is usually algorithm.
 
@@ -160,7 +174,7 @@ While implementing an algorithm, it is initially trained using various number of
 
 For example some pipeline modules as MinMaxNormalisers have the function of normalising the data for the larger algorithms.
 
-Following example illustrates how to setup the learning pipeline for Data Descriptor:
+Following example illustrates how to setup the learning pipeline modules:
 
 ```csharp
 public void SimpleSequenceTest()
@@ -230,7 +244,7 @@ public void SimpleSequenceTest()
 ```
 The code shown above setups the pipeline of two modules. 
 
-1.First one is so called action module, which defines the custom code to be executed. 
+1.First one is so called _Action Module_, which defines the custom code to be executed in the program to achieve . 
 ```csharp
 api.UseActionModule<object, double[][]>((notUsed, ctx)
 ```
