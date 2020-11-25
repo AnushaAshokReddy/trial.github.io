@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
 title: The LearningApi
 description: The set of ML algorithms implemented in C#
+
+show_downloads: true
