@@ -165,7 +165,7 @@ More information can be found on [Click here for more information on NuGet packa
   
 **The Pipeline module** receives an input TIN and context information. Usually TIN is set of data, which results as output of th eprevious module. Typically, first module in the pipeline is responsibe to provide learning data and last module in the pipeline is usually algorithm.
 
-# What is a LearningAPI Pipeline Module? <a id="What_is_Module"></a>
+# What is a LearningApi Pipeline Module? <a id="What_is_Module"></a>
 
 A module in Machine Learning represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 Both algorithms and modules are independent of each other. 
@@ -242,9 +242,9 @@ public void SimpleSequenceTest()
             return desc;
         }
 ```
-The code shown above setups the pipeline of two modules. 
+The code shown above sets up the pipeline for two modules. 
 
-1.First one is so called _Action Module_, which defines the custom code to be executed in the program to achieve . 
+1.First one is so called _Action Module_, which defines the custom code (to generate the vector functions) to be executed in the program to achieve . 
 ```csharp
 api.UseActionModule<object, double[][]>((notUsed, ctx)
 ```
@@ -255,14 +255,27 @@ api.UseActionModule<object, double[][]>((notUsed, ctx)
 api.UsePerceptron(0.02, 10000);
 ```
 
-Execution of the pipeline is started with following line of code:
+3.Execution of the pipeline is started with following line of code:
 
 ```csharp
 IScore score = api.Run() as IScore;
 ```
+4.DataDescriptor part is to define the input data we use.The below lines of code guides the program what input should be considered. 
+
+```csharp
+desc.Features[0] = new LearningFoundation.DataMappers.Column()
+            {
+                Id = 0,
+                Name = "X",
+                Type = LearningFoundation.DataMappers.ColumnType.NUMERIC,
+                Index = 0,
+            };
+
+            desc.LabelIndex = 1;
+```
 
 When the pipeline starts, modules are executed in the sequence ordered as they are added to the pipeline. 
-In this case, first action module will be executed and then perceptron algorithm. After running of the pipeline, model is trained. Next common step in Machine Learning applications is called evaluation of the model. Following code in previous example shows how to evaluate (predict) the model:
+In this case, first 'Action Module' will be executed and then 'Perceptron' algorithm. After running of the pipeline modules, model is trained. Next common step in Machine Learning applications is called evaluation of the model. Following code in previous example shows how to evaluate (predict) the model:
 
 ```csharp
 double[][] testData = new double[4][];
@@ -301,13 +314,13 @@ Lets take a simple example to build a model to predict the HOUSE PRICE. For this
 
 **Loading data phase :** 
 
-Let's consider 2 simple features (features are the inputs)
+Let's consider 2 simple _features_ (features are the inputs)
 	
 	*Size* - Size of the house
 	
 	*Room* - Number of rooms
 	
-and 1 label (the output feature is called label)
+and 1 _label_ (the output feature is called label)
 
 	*Price* - Price of the house based on *room* feature
 
@@ -337,12 +350,13 @@ Ex. Size data is taken as 1 instead of 10 sq.m.
 | 5 | 1 | 18 |
 | 5 | 2 | 20 |
 
-The model reads the csv file with the following interface :
+The model uses CsvDataProvider to read the csv file as shown in the following interface :
 
 ```csharp
  api.UseCsvDataProvider(trainDataPath, ',', false);
 ```
-we should provide the meta data and label index for our csv file in the datadescriptor. Meta data is the declaration of columns in csv file and label index is the index number of feature based on which the prediction should be made. 
+
+The module can be configured by using a DataDescriptor class. This class describes the columns (features and the label). Label index is the index number of feature based on which the prediction should be made. 
 
 The following is the code snippet for the data descriptor :
 
@@ -360,28 +374,24 @@ The following is the code snippet for the data descriptor :
 
 **Training phase :** The model reads the data from _csv_ file and based on the data given, after training the model, the model should be able to predict the result y. 
 
-The linear regression representation for the above situation corresponds to **PRICE = 3 * SIZE + 2 * ROOM + 1** which is in the form of linear equation
-**y = w1 x1 + w2 x2 + b** , 
+The linear regression representation for the above situation corresponds to the following equation which is in the form of linear equation 
 
-where 
+	y = (w1 * x1) + (w2 * x2) + b , 
 
-      y is the predicted price of the house
+	PRICE = (3 * SIZE) + (2 * ROOM) + 1  
 
-      x1 is the Size of house based on which the price should be predicted
-      
-      x2 is the Room 
-      
-      w1 or 3 is the weight (w1) for feature PRICE and 
-      
-      w2 or 2 is the weight (w2) for feature ROOM
-      
+	where 
+
+      y  is the predicted price of the house
+      x1 is the Size of house 
+      x2 is number of rooms in the house
+      w1 or 3 is the weight (w1) for feature PRICE     
+      w2 or 2 is the weight (w2) for feature ROOM  
       b or 1 is the bias 
       
-Here w and b are weight and bias -  
+Here w and b are weight and bias -  To understand this, imagine, suppose the model has to predict the price of house , so it will start guessing the values of w and b , based on these values , it predicts the price (y), we compare this predicted price with the original data value and give the error. Error is found for each data set in the csv file. 
 
-Suppose the model has to predict the price of house , So it will start guessing the values of w and b , based on these values , it predicts the price (y), we compare this predicted price with the original data value and give the error. Error is found for each data set in the csv file. 
-
-we use *Mean Square Error* concept here to find out the error differences and help the model to finalise the least error value to be more accurate for the prediction. For each data set MSE is calculated.
+we use *Mean Square Error* concept to find out the error differences and help the model to finalise the least error value to be more accurate for the prediction. For each data set MSE is calculated.
 
 Initially let's initialise the weight and bias (let this be w1=0 , w2=0 and b=0). This w and b are used for calculating the prices across all the data of size given :
 
@@ -495,6 +505,8 @@ Assume, for the correct epoch (1000th epoch), model has taken the values of W1=2
 
 ## Implementation of LearningApi for the above example Algorithm :
 
+This topic provides a deep knowledge on implementation of LearningApi for the algorithm we discussed above. Here main focus is to learn where and how we implement the LerningApi interfaces in the project and not the algorithm itself.
+
 ### Step 1: Create a solution 
 
 In the Visual Studio, create a new solution by following the steps -
@@ -551,15 +563,15 @@ We should create a Test folder where we can initiate the program and command the
 
 ![Image 8](https://user-images.githubusercontent.com/44580961/99399514-c4ea4a80-290b-11eb-939f-4ea14c0ee485.png) 
 
-Select the Test file 'MSTest project c#' and click on NEXT button as shown in the below Fig. 9.
+Select the Test file _'MSTest project c#'_ and click on NEXT button as shown in the below Fig. 9.
 
 ![Image 9](https://user-images.githubusercontent.com/44580961/99399521-c87dd180-290b-11eb-8e5b-42adaa90a054.png) 
 
-Name the project name as **HelloLearningApiExampleAlgorithmTest** and click on NEXT button. 
+Name the project name as _**HelloLearningApiExampleAlgorithmTest**_ and click on NEXT button. 
 
 ![Image 10](https://user-images.githubusercontent.com/44580961/99399539-d16ea300-290b-11eb-9336-5d3f6710190b.png) 
 
-Test project is created under the main solution and rename the class file as HelloLearningApiExampleAlgorithmTest1 as shown in the below Fig. 11.
+Test project is created under the main solution and rename the class file as _**ExampleLearningApiTest**_ as shown in the below Fig. 11.
 
 <!--![Image 11](https://user-images.githubusercontent.com/44580961/99399545-d3d0fd00-290b-11eb-9c1a-135f301f7f64.png) -->
 
@@ -594,7 +606,9 @@ Fig. 13 : NuGet package integration step2,
 
 A pop up with the packages installed along with the LearningApi NuGet package is displayed. Click on OK/Accept button.
 
-### Step 5 : Start the Code for the project and test .cs files  <a href="#Example_Algoirthm">LearningApi Example Algorithm</a>
+### Step 5 : Start the Code for the project and test .cs files  
+
+<a href="#Example_Algoirthm">Click here to recap the LearningApi Example Algorithm</a>
 
 **In Test.cs file** , we direct the model to read the csv file and take the data for training of the model. We also provide data mapper to extract the data from the columns with the following code :
 
@@ -624,7 +638,7 @@ private DataDescriptor LoadMetaData()
         }
 ```
 
-**In Algorithm.cs file** , we implement the *IAlgorithm* in the code which is taken from LearningApi NuGet package. *IAlgorithm*  is in the library and it has a separate structure which we have to use in the project as we already have discussed in the section <a href="#LearningApi_Concept">LearningApi Concept</a>. 
+In **Algorithm.cs** file , we implement the *IAlgorithm* in the code which is taken from LearningApi NuGet package. *IAlgorithm*  is in the library and it has a separate structure which we have to use in the project as we already have discussed in the section <a href="#LearningApi_Concept">LearningApi Concept</a>. 
 
 ![Image 14](https://user-images.githubusercontent.com/44580961/99401608-62467e00-290e-11eb-8197-6dfa9aa06f32.png)
 
@@ -733,7 +747,7 @@ According to the algorithm, the set of data of house details is given and traine
 
 Fig. 16 : Result is shown here
 
-You can refer this example project in the [Example algorithm project in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/se-dystsys-2018-2019-softwareengineering/tree/Anusha_Ashok_Reddy/My%20work/My%20Project)
+You can refer this example project in the [Click here to refer the project code in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Individual%20project_AnushaAshokReddy)
 
 -------------------------------------------------------------------------------------------------------------
  
