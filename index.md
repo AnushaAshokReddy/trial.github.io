@@ -1,5 +1,11 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LICENSE)
 
+<button>Default Button</button>
+<a href="#" class="button">Anusha Button</a>
+<button class="button">Button</button>
+<input type="button" class="button" value="Input Button">
+
+
 # Welcome To LearningApi Tutorial 
 
 # Index 
