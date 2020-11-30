@@ -5,6 +5,7 @@
 <button class="button">Button</button>
 <input type="button" class="button" value="Input Button">
 
+echo '# hello world' >> index.md
 
 # Welcome To LearningApi Tutorial 
 
