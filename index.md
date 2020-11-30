@@ -4,21 +4,21 @@
 
 # Index 
 
-<a href="#LearningApi_Introduction">LearningApi Introduction</a>
+Part 1  - <a href="#LearningApi_Introduction">LearningApi Introduction</a>
 
-<a href="#Supported_Algorithms&Modules_List">Supported Algorithms and Modules</a>
+Part 2  - <a href="#Supported_Algorithms&Modules_List">Supported Algorithms and Modules</a>
 
-<a href="#LearningApi_Concept">The LearningApi concept</a>
+Part 3  - <a href="#LearningApi_Concept">The LearningApi concept</a>
 
-<a href="#What_is_Pipeline_Module">What is a LearningApi Pipeline Module?</a>
+Part 4a - <a href="#What_is_Pipeline_Module">What is a LearningApi Pipeline Module?</a>
 
-<a href="#Example_Custom_Module">How to build the custom module?</a>
+Part 4b - <a href="#Example_Custom_Module">How to build the custom module?</a>
 
-<a href="#What_is_Algorithm">What is a LearningApi Algorithm?</a>
+Part 5a - <a href="#What_is_Algorithm">What is a LearningApi Algorithm?</a>
 
-<a href="#Example_Custom_Algorithm">How to build the custom algorithm?</a>
+Part 5b - <a href="#Example_Custom_Algorithm">How to build the custom algorithm?</a>
 
-<a href="#Your_Contribution">Contribution to Learning API?</a>
+Part 6  - <a href="#Your_Contribution">Contribution to Learning API?</a>
 
 
 # LearningApi Introduction <a id="LearningApi_Introduction"></a>
@@ -303,7 +303,7 @@ This example is only for reference on steps to implement a solution using Learni
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
-# What is Algorithm? <a id="What_is_Algorithm"></a>
+# What is a LearningApi Algorithm <a id="What_is_Algorithm"></a>
 
 Machine learning is a class of methods for automatically creating models from data. Machine learning algorithms are the engines of machine learning, meaning it is the algorithms that turn a data set into a model. Which kind of algorithm works best (supervised, unsupervised, classification, regression, etc.) depends on the kind of problem you’re solving, the computing resources available, and the nature of the data.
 
