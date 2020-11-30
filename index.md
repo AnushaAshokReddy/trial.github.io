@@ -330,7 +330,7 @@ We have also given the similar guidance for an actual Machine Learning Algorithm
 
 If you have implemented a custom module or algorithm and want to integrate it to LearningAPI, then you can do the following, 
 
-- Contact us - implement a page for this 
+- Contact us - implement a page for this - To do 
 - Implement your algorithm or/and module
 - Create the pull request
 - Create an issue in the Repository
