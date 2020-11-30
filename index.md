@@ -1,9 +1,15 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/blob/master/LICENSE)
 
 <button>Default Button</button>
-<a href="#" class="button">Anusha Button</a>
+<a href="#https://anushaashokreddy.github.io/trial.github.io/Basic_Example_Sum.md" class="button">Anusha Button</a>
 <button class="button">Button</button>
 <input type="button" class="button" value="Input Button">
+
+[Part 1 - Setup a Github pages blog in five minutes](https://anushaashokreddy.github.io/trial.github.io/Basic_Example_Sum.md)
+
+[Part 2 - Linear_Regression](https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example)
+
+[Part 3 - Linear_Regression example](https://trial.github.io/Linear_Regression_Example)
 
 echo '# hello world' >> index.md
 
