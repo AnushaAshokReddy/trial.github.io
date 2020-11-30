@@ -89,6 +89,5 @@ Explain result and give picture here.
 
 ## Pipeline Module Example code in Github
 
-We can find the code for the above example in GitHub 
+You can refer this example project by [Clicking here to refer the above Pipeline Module code in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Individual%20project_AnushaAshokReddy/SumAlgorithm)
 
-[View Code on GitHub](https://)
