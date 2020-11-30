@@ -1,3 +1,18 @@
+# This .md file has to be deleted 
+
+<button>Default Button</button>
+<a href="#https://anushaashokreddy.github.io/trial.github.io/Basic_Example_Sum.md" class="button">Anusha Button</a>
+<button class="button">Button</button>
+<input type="button" class="button" value="Input Button">
+
+
+[Part 2 - Linear_Regression](https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example)
+
+<a href="https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example"><span class="button">Linear Regression Algorithm using LearningApi</span></a>
+
+
+
+
 
 # How to build the custom algorithm using LearningAPI? <a id="Example_Custom_Algorithm"></a>
 
