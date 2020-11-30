@@ -174,6 +174,8 @@ More information can be found on [Click here for more information on NuGet packa
 
 ***Implement a button - Button name - Pipeline Module ***
 
+<button>Pipeline Module</button>
+
 # What is a LearningApi Pipeline Module? <a id="What_is_Module"></a>
 
 A module in Machine Learning represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
@@ -398,10 +400,12 @@ Explain result and give picture here.
 
 ***Implement a button - Button name - Pipeline Example code in Github ***
 
-jkwebfeuzvfzuevfevfui
+<button>Pipeline Example code in Github</button>
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ***Implement a button - Button name - Algorithm ***
+
+<button>Algorithm</button>
 
 # What is Algorithm? <a id="What_is_Algorithm"></a>
 
@@ -797,11 +801,14 @@ Fig. 16 : Result is shown here
 
 ***Implement a button - Button name - Basic SUM algorithm in Github ***
 
+<button>Basic SUM algorithm in Github</button>
+
 You can refer this example project in the [Click here to refer the SUM algorithm project code in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Individual%20project_AnushaAshokReddy/SumAlgorithm)
 
 -------------------------------------------------------------------------------------------------------------
  ***Implement a button - Button name - Linear Regression Algorithm using LearningApi ***
 
+<button>Linear Regression Algorithm using LearningApi</button>
 
 # How can you contribute to LearningApi? <a id="Your_Contribution"></a>
 
