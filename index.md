@@ -303,7 +303,7 @@ This example is only for reference on steps to implement a solution using Learni
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
-# What is a LearningApi Algorithm <a id="What_is_Algorithm"></a>
+# What is a LearningApi Algorithm? <a id="What_is_Algorithm"></a>
 
 Machine learning is a class of methods for automatically creating models from data. Machine learning algorithms are the engines of machine learning, meaning it is the algorithms that turn a data set into a model. Which kind of algorithm works best (supervised, unsupervised, classification, regression, etc.) depends on the kind of problem you’re solving, the computing resources available, and the nature of the data.
 
