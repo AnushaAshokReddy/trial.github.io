@@ -448,4 +448,6 @@ According to the algorithm, the set of data of house details is given and traine
 
 Fig. 16 : Result is shown here
 
-You can refer this example project in the [Click here to refer the project code in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Individual%20project_AnushaAshokReddy)
+## LINEAR REGRESSION algorithm code in Github
+
+You can refer this example project in the [Click here to refer the above project code in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Individual%20project_AnushaAshokReddy)
