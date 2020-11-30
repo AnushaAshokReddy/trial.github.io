@@ -317,11 +317,11 @@ To train a model to learn predicting the calculation of POWER consumption by doi
 
 Below is the explanation of implementation of LearningApi concept for building the SUM model as explained earlier. 
 
-<a href="https://anushaashokreddy.github.io/trial.github.io/Sum_Algorithm_Example"><span class="button">Example Algorithm using LearningApi</span></a>
+<a href="https://anushaashokreddy.github.io/trial.github.io/Sum_Algorithm_Example"><span class="button">Example SUM Algorithm using LearningApi</span></a>
 
 We have also given the similar guidance for an actual Machine Learning Algorithm LINEAR REGRESSION as a complex example to learn the process more deeper in the below link. 
 
-<a href="https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example"><span class="button">Linear Regression using LearningApi</span></a>
+<a href="https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example"><span class="button">Example Linear Regression using LearningApi</span></a>
 
 -------------------------------------------------------------------------------------------------------------
 
