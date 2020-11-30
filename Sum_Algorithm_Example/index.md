@@ -376,6 +376,4 @@ Fig. 16 : Result is shown here
 
 ## Basic Example SUM algorithm code in Github
 
-We can find the code for the above example in GitHub 
-
-[View Code on GitHub](https://)
+You can refer this example project by [Clicking here to refer the SUM algorithm project code in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Individual%20project_AnushaAshokReddy/SumAlgorithm)
