@@ -5,13 +5,10 @@
 <button class="button">Button</button>
 <input type="button" class="button" value="Input Button">
 
-[Part 1 - Setup a Github pages blog in five minutes](https://anushaashokreddy.github.io/trial.github.io/Basic_Example_Sum.md)
 
 [Part 2 - Linear_Regression](https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example)
 
-[Part 3 - Linear_Regression example](https://trial.github.io/Linear_Regression_Example)
-
-echo '# hello world' >> index.md
+<a href="https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example"><span class="button">Click this button</span></a>
 
 # Welcome To LearningApi Tutorial 
 
