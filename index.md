@@ -152,7 +152,7 @@ More information can be found on [Click here for more information on NuGet packa
   
   **Output** is the predicted value from PREDICT method which gives the accuracy of the True or False statements.
   
-  For example, if we take HOUSE PRICE prediction scenario ( <a href="#Model_Explanation">(Click here for model explanation)</a>), the features SIZE, ROOM and PRICE  are the real time _input data_ given to the model to get trained based on these existing data. Whereas , PRICE is the predicted value which is expected to be the output of the model based on the training given to the model. 
+  For example, if we take HOUSE PRICE prediction scenario (Explained in Linear Regression using LeraningApi section), the features SIZE, ROOM and PRICE  are the real time _input data_ given to the model to get trained based on these existing data. Whereas , PRICE is the predicted value which is expected to be the output of the model based on the training given to the model. 
 
 **IAlgorithm** - The _IAlgorithm_ interface has 2 phases:
 
