@@ -175,6 +175,8 @@ More information can be found on [Click here for more information on NuGet packa
 ***Implement a button - Button name - Pipeline Module ***
 
 <button>Pipeline Module</button>
+<a href="#" class="button">Pipeline Module</a>
+<button class="button">Pipeline Module</button>
 
 # What is a LearningApi Pipeline Module? <a id="What_is_Module"></a>
 
@@ -401,11 +403,15 @@ Explain result and give picture here.
 ***Implement a button - Button name - Pipeline Example code in Github ***
 
 <button>Pipeline Example code in Github</button>
+<a href="#" class="button">Pipeline Example code in Github</a>
+<button class="button">Pipeline Example code in Github</button>
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ***Implement a button - Button name - Algorithm ***
 
 <button>Algorithm</button>
+<a href="#" class="button">Algorithm</a>
+<button class="button">Algorithm</button>
 
 # What is Algorithm? <a id="What_is_Algorithm"></a>
 
@@ -802,6 +808,8 @@ Fig. 16 : Result is shown here
 ***Implement a button - Button name - Basic SUM algorithm in Github ***
 
 <button>Basic SUM algorithm in Github</button>
+<a href="#" class="button">Basic SUM algorithm in Github</a>
+<button class="button">Basic SUM algorithm in Github</button>
 
 You can refer this example project in the [Click here to refer the SUM algorithm project code in GitHub..](https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src/Individual%20project_AnushaAshokReddy/SumAlgorithm)
 
@@ -809,6 +817,8 @@ You can refer this example project in the [Click here to refer the SUM algorithm
  ***Implement a button - Button name - Linear Regression Algorithm using LearningApi ***
 
 <button>Linear Regression Algorithm using LearningApi</button>
+<a href="#" class="button">Linear Regression Algorithm using LearningApi</a>
+<button class="button">Linear Regression Algorithm using LearningApi</button>
 
 # How can you contribute to LearningApi? <a id="Your_Contribution"></a>
 
