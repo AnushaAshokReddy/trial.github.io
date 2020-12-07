@@ -332,8 +332,11 @@ If you have implemented a custom module or algorithm and want to integrate it to
 
 <a href="https://anushaashokreddy.github.io/trial.github.io/ContactPage"><span class="button">Contact Us</span></a>
 
-- Implement your algorithm or/and module
-- Create the pull request
-- Create an issue in the Repository
+<a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src"><span class="button">Implement your algorithm or/and module</span></a>
+
+<a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src"><span class="button">Create the pull request</span></a>
+
+<a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/issues/new"><span class="button">Create an issue in the Repository</span></a>
+
 
 
