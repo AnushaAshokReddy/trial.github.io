@@ -38,4 +38,4 @@ Contact via phone : 0123456789
 
 ..
 
-<img src="https://user-images.githubusercontent.com/44580961/101384280-3b151800-38e0-11eb-82d6-e858655ffeef.png" IMG STYLE="position:absolute; TOP:250px; RIGHT:270px; WIDTH:1250px; HEIGHT:1550px"/>
+<img src="https://user-images.githubusercontent.com/44580961/101384280-3b151800-38e0-11eb-82d6-e858655ffeef.png" IMG STYLE="position:absolute; TOP:550px; RIGHT:200px; WIDTH:1050px; HEIGHT:1200px"/>
