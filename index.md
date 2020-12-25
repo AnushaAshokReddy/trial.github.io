@@ -321,8 +321,11 @@ Below is the explanation of implementation of LearningApi concept for building t
 
 We have also given the similar guidance for an actual Machine Learning Algorithm LINEAR REGRESSION as a complex example to learn the process more deeper in the below link. 
 
-<a href="https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example"><span class="button">Example Linear Regression using LearningApi</span></a>
+[Click here to find the complex example description..](https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example)
 
+<!--
+<a href="https://anushaashokreddy.github.io/trial.github.io/Linear_Regression_Example"><span class="button">Example Linear Regression using LearningApi</span></a>
+-->
 -------------------------------------------------------------------------------------------------------------
 
 
@@ -332,11 +335,14 @@ If you have implemented a custom module or algorithm and want to integrate it to
 
 <a href="https://anushaashokreddy.github.io/trial.github.io/ContactPage"><span class="button">Contact Us</span></a>
 
-<a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src"><span class="button">Implement your algorithm or/and module</span></a>
-
-<a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src"><span class="button">Create the pull request</span></a>
-
 <a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/issues/new"><span class="button">Create an issue in the Repository</span></a>
+
+
+<!--
+<a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src"><span class="button">Implement your algorithm or/and module</span></a>-->
+
+<!--<a href="https://github.com/UniversityOfAppliedSciencesFrankfurt/LearningApi/tree/master/LearningApi/src"><span class="button">Create the pull request</span></a> 
+-->
 
 
 
