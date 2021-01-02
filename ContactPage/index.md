@@ -7,12 +7,10 @@ Contact Via e-mail : abc@learningapi.com
 
 Contact via phone : 0123456789
 
-.
-
-.
 
 
-.
+
+
 
 
 
