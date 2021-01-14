@@ -44,7 +44,7 @@ You could think about these tasks as follows:
 2. Normalize the data
 3. Train the data 
 
-- After the above process, you will have a trained instance of the algorithm *algInst*, which can be used for prediction,
+After the above process, you will have a trained instance of the algorithm *algInst*, which can be used for prediction,
 
 4. Use *algInst* to predict the power consumption based on the given temperature and wind.
 
