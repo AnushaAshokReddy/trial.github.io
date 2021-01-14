@@ -306,7 +306,7 @@ Machine learning is a class of methods for automatically creating models from da
 
 An algorithm is a set of logical coding which is trained with lots and lots of data to predict the otput most accurately.
 
-# How to build the custom algorithm using LearningAPI? <a id="Example_Custom_Algorithm"></a>
+# How to build the custom algorithm? <a id="Example_Custom_Algorithm"></a>
 
   The below solution demonstrates how to implement a simple model SUM calculation using LearningApi. To understand the implementation, you should initially understand the logic we are using. 
 	
